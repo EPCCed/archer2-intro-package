@@ -1,15 +1,26 @@
 ---
-title: "Introduction to EPCC Service Desks"
+title: "Overview of the ARCHER2 system"
 teaching: 20
 exercises: 0
 questions:
-- "What are the EPCC Service Desks?"
+- "What hardware and software is available on ARCHER2?"
+- "How does the hardware fit together?"
+- "How does this impact me as a user?"
 objectives:
-- "Understand what the EPCC Service Desks are and how they fit within the wider organisation."
+- "Gain an overview of the technology available on the ARCHER2 service."
+- "Understand the impact of the technology on my use of the service."
 keypoints:
-- "EPCC runs multiple Service Desks to support different services."
+- "ARCHER2 consists of different components."
+- "The system is based on standard Linux with command line access."
 ---
-## Overview
+
+## Architecture
+
+## Compute nodes
+
+## File systems
+
+## System software: OS, supported shells
 
 
 {% include links.md %}

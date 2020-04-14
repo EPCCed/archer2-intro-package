@@ -20,7 +20,20 @@ root: .
 
 <h2>Description</h2>
 
-This lesson provides an introduction to operating the EPCC Service Desks.
+This lesson provides an introduction to using ARCHER2 for user who:
+  - have already used other HPC systems; and
+  - want to use pre-installed simulation/modelling packages rather than compiling their own.
+
+The lesson aims to answer the following questions:
+  - What hardware is available on ARCHER2?
+    + What does they consist of (login nodes, compute nodes, file systems, backup)?
+    + How does this impact me as a user?
+  - How can I access ARCHER2 interactively and transfer data?
+  - What does the ARCHER2 software environment look like and how do I access software?
+  - How do I write job submission scripts and submit them to the ARCHER2 scheduler?
+  - How can I be a good ARCHER2 citizen?
+  - How can I check what resources I am using and look at historical usage?
+  - What are the next steps for me using ARCHER2 and how can I get more help?
 
 <hr/>
 
