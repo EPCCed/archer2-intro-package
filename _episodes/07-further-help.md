@@ -1,19 +1,26 @@
 ---
-title: "Getting further help"
+title: "Next steps"
 teaching: 20
 exercises: 0
 questions:
-- "Where can I get further help on operating EPCC Service Desks?"
-- "Where is the EPCC Service Desk Documentation?"
-- "What support is in place for me as a Service Desk Operator?"
-- "How do I make suggestions on how to improve the Service Desks?"
+- "Where can I get further help on using ARCHER2?"
+- "What other training is available to me?"
+- "How can I get access to ARCHER2 for my research?"
 objectives:
-- "Know where to get help and support."
-- "Know how to help improve the Service Desks."
+- "Be aware of the available ARCHER2 documentation."
+- "Be aware of what other training is available."
+- "Be aware of the ARCHER2 access routes.
 keypoints:
-- "You can get support from the USL and CSE teams as a Service Desk Operator."
+- "ARCHER2 has a lot of documentation available."
+- "There are lots of training opportunities available."
+- "You can get access to ARCHER2 resources via a number of different routes."
 ---
 
+## ARCHER2 service desk
+
+## Documentation
+
+## ARCHER2 Training
 
 {% include links.md %}
 
