@@ -1,15 +1,23 @@
 ---
 title: "Different EPCC Service Desks"
-teaching: 30
+teaching: 10
 exercises: 0
 questions:
-- "What are the similarities and differences between the different EPCC Service Desks?"
+- "How can I be a responsible user?"
+- "How can I protect my data?"
 objectives:
-- "Understand the similarities and differences between the different EPCC Service Desks."
+- "Learn how to be a considerate shared system citizen."
+- "Understand how to protect your critical data."
 keypoints:
-- "Some Service Desks have *Service Levels* associated with them that can lead to financial penalties for EPCC if they are broken."
+- "Be careful how you use the login node."
+- "Your data on the system is your responsibility."
+- "Again, don't run stuff on the login node."
+- "Don't be a bad person and run stuff on the login node."
 ---
 
+## What can I do on the login nodes? What shouldn't I do?
+
+## Looking after your data
 
 {% include links.md %}
 
