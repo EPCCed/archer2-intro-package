@@ -1,19 +1,19 @@
 ---
-title: "Getting further help"
+title: "Using SAFE"
 teaching: 20
 exercises: 0
 questions:
-- "Where can I get further help on operating EPCC Service Desks?"
-- "Where is the EPCC Service Desk Documentation?"
-- "What support is in place for me as a Service Desk Operator?"
-- "How do I make suggestions on how to improve the Service Desks?"
+- "How can I manage my ARCHER2 user account?"
+- "How can I gain access to licensed software on ARCHER2?"
+- "How can I check what resources I am using and look at historical usage?"
 objectives:
-- "Know where to get help and support."
-- "Know how to help improve the Service Desks."
+- "Know what SAFE can be used for and how to use it."
+- "Understand what reports you can generate on your use of ARCHER2."
 keypoints:
-- "You can get support from the USL and CSE teams as a Service Desk Operator."
+- "SAFE allows you to manage accounts and resources online."
 ---
 
+Add a link to archer2-safeuser
 
 {% include links.md %}
 

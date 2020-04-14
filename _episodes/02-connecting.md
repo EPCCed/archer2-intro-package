@@ -14,8 +14,11 @@ keypoints:
 ---
 
 ## Connecting using SSH
+
 ## Password policy, SSH keys
+
 ## Data transfer services: scp, rsync, Globus Online
+
 ## Data transfer best practice (top 5 and point to data transfer documentation)
 
 
