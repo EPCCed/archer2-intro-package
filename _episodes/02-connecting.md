@@ -17,9 +17,10 @@ keypoints:
 
 The ARCHER2 login address is
 
-:: ..
-
-  login.archer2.ac.uk
+```
+login.archer2.ac.uk
+```
+{: .bash}
 
 Access to ARCHER2 is via SSH using either password or SSH key pair.
 
@@ -40,7 +41,7 @@ would be supported.
 > * `rainbowllamajumping`
 > * `horsebatterystaple`
 > 
-{.challenge}
+{: .challenge}
 
 ## SSH keys
 
@@ -100,7 +101,7 @@ Here are the main points you should consider:
 > Using the documentation above, find the command you would use to create an uncompressed zip archive
 > file of all data within a directory called `large_data_output/`. What command would you use to verify
 > that the archive file you have created is not corrupt so you can safely delete the original data?
-{.challenge}
+{: .challenge}
 
 **TODO** Add the answer for the challenge
 
