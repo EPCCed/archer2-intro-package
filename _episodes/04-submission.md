@@ -111,9 +111,9 @@ NODELIST           NODES       PARTITION       STATE  CPUS    S:C:T MEMORY TMP_D
 > ```
 > [auser@archer2-login1 ~]$ sinfo -n cn1 -o "%n %c %m"
 > ```
+> {: .language-bash}
 > This should display the resources available for a standard node. Can you use `sinfo` to find out the range of
 > node IDs for the high memory nodes?
-> {: .language-bash}
 > > ## Solution
 > > The high memory nodes have IDs `cn100-cn300`. You can get this by using:
 > > ```
@@ -164,22 +164,22 @@ The options shown here are:
 > ## What are the defaults?
 > If you do not specify job options, what are the defaults for SLURM on ARCHER2? Submit jobs to find out
 > what the defaults are for:
-> 1. Number of nodes
-> 2. Tasks per node
-> 3. Walltime
-> 4. Budget (or Account) the job is charged to
+> * Number of nodes
+> * Tasks per node
+> * Walltime
+> * Budget (or Account) the job is charged to
 > > ## Solution
 > > Defaults are:
-> > 1. Number of nodes: 1
-> > 2. Tasks per node: 1
-> > 3. Walltime: 5 minutes
-> > 4. Budget: None - fails if submitted without a budget specified
+> > * Number of nodes: 1
+> > * Tasks per node: 1
+> > * Walltime: 5 minutes
+> > * Budget: None - fails if submitted without a budget specified
 > {: .solution}
 {: .challenge}
 
 **TODO** Check defaults for these answers
 
-> ## What are the defaults?
+> ## Getting notified
 > SLURM on ARCHER2 can also send e-mails to notify you when your job starts, ends, fails, etc. Can
 > you find out how you would setup your job script to send you an e-mail when your job finishes and
 > when it fails? Test your answer, does it work?
@@ -212,26 +212,26 @@ srun --ntasks=512 --ntasks-per-node=128 xthi
 ```
 {: .language-bash}
 
-> ## Underpopulation of nodes
+> ## Underpopulation of nodes
 > You may often want to *underpopulate* nodes on ARCHER2 to access more memory or more memory 
 > bandwidth per task. Can you state the `srun` command and options you would use to run `xthi`:
-> 1. On 4 nodes with 64 tasks per node?
-> 2. On 8 nodes with 2 tasks per node, 1 task per socket?
-> 3. On 4 nodes with 32 tasks per node, ensuring an even distribution across the 8 NUMA regions
+> * On 4 nodes with 64 tasks per node?
+> * On 8 nodes with 2 tasks per node, 1 task per socket?
+> * On 4 nodes with 32 tasks per node, ensuring an even distribution across the 8 NUMA regions
 >    on the node?
 > 
 > Once you have your answers run them in job scripts and check that the binding of tasks to 
 > nodes and cores output by `xthi` is what you expect.
 > > ## Solution
-> > 1. `srun --ntasks=256 --ntasks-per-node=64 xthi`
-> > 2. `srun --ntasks=16 --ntasks-per-node=2 --ntasks-per-socket=1 xthi`
-> > 3. `srun --ntasks=128 --ntasks-per-node=32 --ntasks-per-socket=16 --cores-per-task=4 xthi`
+> > * `srun --ntasks=256 --ntasks-per-node=64 xthi`
+> > * `srun --ntasks=16 --ntasks-per-node=2 --ntasks-per-socket=1 xthi`
+> > * `srun --ntasks=128 --ntasks-per-node=32 --ntasks-per-socket=16 --cores-per-task=4 xthi`
 > {: .solution}
 {: .challenge}
 
 ### Hybrid MPI and OpenMP jobs
 
-## STDOUT/STDERR from jobs
+## STDOUT/STDERR from jobs
 
 STDOUT and STDERR from jobs are, by default, written to a file called `slurm-<jobid>.out` in the
 working directory for the job (unless the job script changes this, this will be the directory
