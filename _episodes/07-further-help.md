@@ -9,7 +9,7 @@ questions:
 objectives:
 - "Be aware of the available ARCHER2 documentation."
 - "Be aware of what other training is available."
-- "Be aware of the ARCHER2 access routes.
+- "Be aware of the ARCHER2 access routes."
 keypoints:
 - "ARCHER2 has a lot of documentation available."
 - "There are lots of training opportunities available."
