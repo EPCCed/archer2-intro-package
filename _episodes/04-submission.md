@@ -123,7 +123,9 @@ NODELIST           NODES       PARTITION       STATE  CPUS    S:C:T MEMORY TMP_D
 > {: .solution}
 {: .challenge}
 
-## Writing job submission scripts and `srun`
+## Using batch job submission scripts
+
+### Header section: `#SBATCH`
 
 As for most other scheduler systems, job submission scripts in SLURM consist of a header section with the
 shell specification and options to the submission command (`sbatch` in this case) followed by the body of
@@ -137,7 +139,7 @@ two nodes.
 
 ```
 #!/bin/bash
-#SBATCH -job-name=my_job
+#SBATCH -job-name=my_mpi_job
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=128
 #SBATCH --time=0:10:0
@@ -149,19 +151,53 @@ export OMP_NUM_THREADS=1
 
 # Load modules, etc.
 # srun to launch the executable
-srun --ntasks=512 --ntasks-per-node=128 xthi
+srun --nodes=2 --ntasks-per-node=128 xthi
 ```
 {: .language-bash}
 
 The options shown here are:
 
-* `--job-name=my_job` - Set the name for the job that will be displayed in SLURM output
+* `--job-name=my_mpi_job` - Set the name for the job that will be displayed in SLURM output
 * `--nodes=2` - Select two nodes for this job
 * `--ntasks-per-node=128` - Set 128 parallel processes per node (usually corresponds to MPI ranks) 
 * `--time=0:10:0` - Set 10 minutes maximum walltime for this job
 * `--account=t01` - Charge the job to the `t01` budget
 
-> ## What are the defaults?
+### Submitting jobs using `sbatch`
+
+You use the `sbatch` command to submit job submission scripts to the scheduler. For example, if the
+above script was saved in a file called `test_job.slurm`, you would submit it with:
+
+```
+[auser@archer2-login1 ~]$ sbatch test_job.slurm
+```
+{: .language-bash}
+```
+Submitted batch job 23996
+```
+{: .output}
+
+SLURM reports back with the job ID for the job you have submitted
+
+### Checking progress of your job with `squeue`
+
+You use the `squeue` command to show the current state of the queues on ARCHER2. Without any options, it
+will show all jobs in the queue:
+
+```
+[auser@archer2-login1 ~]$ squeue
+```
+{: .language-bash}
+```
+```
+{: .output}
+
+### Cancelling jobs with `scancel`
+
+You can use the `scancel` command to cancel jobs that are queued or running. When used on running jobs
+it stops them immediately.
+
+> ## What are the default for `sbatch` options?
 > If you do not specify job options, what are the defaults for SLURM on ARCHER2? Submit jobs to find out
 > what the defaults are for:
 > * Number of nodes
@@ -191,6 +227,8 @@ The options shown here are:
 > {: .solution}
 {: .challenge}
 
+### Running parallel applications using `srun`
+
 Once past the header section your script consists of standard shell commands required to run your
 job. These can be simple or complex depending on how you run your jobs but even the simplest job
 script usually contains commands to:
@@ -208,28 +246,74 @@ cores on 4 nodes; as there are 128 cores per node this gives us 512 tasks in tot
 per node. Our `srun` command looks like:
 
 ```
-srun --ntasks=512 --ntasks-per-node=128 xthi
+srun --nodes=4 --ntasks-per-node=128 xthi
 ```
 {: .language-bash}
 
 > ## Underpopulation of nodes
 > You may often want to *underpopulate* nodes on ARCHER2 to access more memory or more memory 
 > bandwidth per task. Can you state the `srun` command and options you would use to run `xthi`:
-> * On 4 nodes with 64 tasks per node?
-> * On 8 nodes with 2 tasks per node, 1 task per socket?
-> * On 4 nodes with 32 tasks per node, ensuring an even distribution across the 8 NUMA regions
->    on the node?
+> 
+> On 4 nodes with 64 tasks per node?
+> 
+> On 8 nodes with 2 tasks per node, 1 task per socket?
+> 
+> On 4 nodes with 32 tasks per node, ensuring an even distribution across the 8 NUMA regions
+> on the node?
 > 
 > Once you have your answers run them in job scripts and check that the binding of tasks to 
 > nodes and cores output by `xthi` is what you expect.
 > > ## Solution
-> > * `srun --ntasks=256 --ntasks-per-node=64 xthi`
-> > * `srun --ntasks=16 --ntasks-per-node=2 --ntasks-per-socket=1 xthi`
-> > * `srun --ntasks=128 --ntasks-per-node=32 --ntasks-per-socket=16 --cores-per-task=4 xthi`
+> > `srun --nodes=4 --ntasks-per-node=64 xthi`
+> >
+> > `srun --nodes=8 --ntasks-per-node=2 --ntasks-per-socket=1 xthi`
+> >
+> > `srun --nodes=4 --ntasks-per-node=32 --ntasks-per-socket=16 --cores-per-task=4 xthi`
 > {: .solution}
 {: .challenge}
 
 ### Hybrid MPI and OpenMP jobs
+
+When running hybrid MPI (with the individual tasks also known as ranks or processes) and OpenMP
+(with multiple threads) jobs you need to leave free cores between the parallel tasks launched
+using `srun` for the multiple OpenMP threads that will be associated with each MPI task.
+
+As we saw above, you can use the options to `srun` to control how many parallel tasks are
+placed on each compute node and can use the `--cores-per-task` option to set the stride 
+between parallel tasks to the right value to accommodate the OpenMP threads - the value
+for `--cores-per-task` should usually be the same as that for `OMP_NUM_THREADS`.
+
+As an example, consider the job script below that runs across 2 nodes with 8 MPI tasks
+per node and 16 OpenMP threads per MPI task (so all 256 cores across both nodes are used).
+
+```
+#!/bin/bash
+#SBATCH -job-name=my_hybrid_job
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=128
+#SBATCH --time=0:10:0
+#SBATCH --account=t01
+
+module load xthi
+
+export OMP_NUM_THREADS=16
+
+# Load modules, etc.
+# srun to launch the executable
+srun --nodes=2 --ntasks-per-node=8 --cores-per-task=${OMP_NUM_THREADS} xthi
+```
+{: .language-bash}
+
+Each ARCHER2 compute node is made up of 8 NUMA (*Non Uniform Memory Access*) regions (4 per socket) 
+with 16 cores in each region. Programs where the threads of a task span multiple NUMA regions
+are likely to be *less* efficient so we recommend using thread counts that fit well into the
+ARCHER2 compute node layout. Effectively, this means one of the following options for nodes
+where all cores are used:
+
+* 8 MPI tasks per node and 16 OpenMP threads per task: equivalent to 1 MPI task per NUMA region
+* 16 MPI tasks per node and 8 OpenMP threads per task: equivalent to 2 MPI tasks per NUMA region
+* 32 MPI tasks per node and 4 OpenMP threads per task: equivalent to 4 MPI tasks per NUMA region
+* 64 MPI tasks per node and 2 OpenMP threads per task: equivalent to 8 MPI tasks per NUMA region 
 
 ## STDOUT/STDERR from jobs
 
@@ -241,13 +325,21 @@ where you submitted the job). So for a job with ID `12345` STDOUT and STDERR wou
 If you run into issues with your jobs, the Service Desk will often ask you to send your job
 submission script and the contents of this file to help debug the issue.
 
+If you need to change the location of STDOUT and STDERR you can use the `--output=<filename>`
+and the `--error=<filename>` options to `sbatch` to split the streams and output to the named
+locations.
+
 ## Managing jobs: `sbatch`, `squeue`, `scancel`
 
-## Other job types
+
+
+## Other useful information
 
 ### Interactive jobs: `salloc` 
 
-**TODO** Add information on how to use solid state storage
+### Using the ARCHER2 solid state storage
+
+**TODO** Add information on how to use solid state storage once it is known
 
 {% include links.md %}
 
