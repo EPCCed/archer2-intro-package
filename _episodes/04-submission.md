@@ -117,7 +117,6 @@ NODELIST           NODES       PARTITION       STATE  CPUS    S:C:T MEMORY TMP_D
 > {: .language-bash}
 > This should display the resources available for a standard node. Can you use `sinfo` to find out the range of
 > node IDs for the high memory nodes?
->
 > > ## Solution
 > > The high memory nodes have IDs `cn100-cn300`. You can get this by using:
 > > ```
