@@ -212,8 +212,7 @@ it stops them immediately.
 > Walltime?
 > 
 > Budget (or Account) the job is charged to?
-> 
-> > ## Solution
+> > ## Solution
 > > Defaults are:
 > > 
 > > Number of nodes: 1
