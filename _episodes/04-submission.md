@@ -26,6 +26,9 @@ available to users. The main commands you should will use with SLURM on ARCHER2 
 * `salloc`: Submit interactive jobs to the scheduler
 * `srun`: Used within a batch job script or interactive job session to start a parallel program
 
+Full documentation on SLURM on ARCHER2 cn be found in [the *Running Jobs on ARCHER2* section of the User
+and Best Practice Guide](https://docs.archer2.ac.uk/user-guide/scheduler.html).
+
 ## Finding out what resources are available: `sinfo`
 
 The `sinfo` command shows the current state of the compute nodes known to the scheduler:
@@ -329,13 +332,48 @@ If you need to change the location of STDOUT and STDERR you can use the `--outpu
 and the `--error=<filename>` options to `sbatch` to split the streams and output to the named
 locations.
 
-## Managing jobs: `sbatch`, `squeue`, `scancel`
-
-
-
 ## Other useful information
 
+In this section we briefly introduce other scheduler topics that may be useful to users. We
+provide links to more information on these areas for people who may want to explore these 
+areas more. 
+
 ### Interactive jobs: `salloc` 
+
+Similar to the batch jobs covered above, users can also run interactive jobs using the SLURM
+command `salloc`. `salloc` takes the same arguments as `sbatch` but, obviously, these are 
+specified on the command line rather than in a job submission script.
+
+Once you the job requested with `salloc` starts, you will be returned to the command line 
+and can now start parallel jobs on the compute nodes interactively with the `srun` command
+in the same way as you would within a job submission script.
+
+For example, to execute `xthi` across all cores on two nodes (1 MPI task per core and no
+OpenMP threading) within an interactive job you would issue the following commands:
+
+```
+[auser@archer2-login1 ~]$ salloc --nodes=2 --ntasks-per-node=128 --time=0:10:0 --account=t01
+salloc: Granted job allocation 24236
+salloc: Waiting for resource configuration
+salloc: Nodes cn13 are ready for job
+[auser@archer2-login1 ~]$ module load xthi
+[auser@archer2-login1 ~]$ srun --nodes=2 --ntasks-per-node=128 xthi
+```
+{: .language-bash}
+```
+**TODO** Add output from xthi
+```
+{: .output}
+
+Once you hav finished your interactive commands, you exit the interactive job with `exit`:
+
+```
+[auser@archer2-login1 ~]$ exit
+exit
+salloc: Relinquishing job allocation 24236
+[auser@archer2-login1 ~]$
+```
+{: .language-bash}
 
 ### Using the ARCHER2 solid state storage
 
