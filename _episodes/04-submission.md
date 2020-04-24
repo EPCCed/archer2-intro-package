@@ -117,6 +117,7 @@ NODELIST           NODES       PARTITION       STATE  CPUS    S:C:T MEMORY TMP_D
 > {: .language-bash}
 > This should display the resources available for a standard node. Can you use `sinfo` to find out the range of
 > node IDs for the high memory nodes?
+>
 > > ## Solution
 > > The high memory nodes have IDs `cn100-cn300`. You can get this by using:
 > > ```
@@ -203,16 +204,25 @@ it stops them immediately.
 > ## What are the default for `sbatch` options?
 > If you do not specify job options, what are the defaults for SLURM on ARCHER2? Submit jobs to find out
 > what the defaults are for:
-> * Number of nodes
-> * Tasks per node
-> * Walltime
-> * Budget (or Account) the job is charged to
+> 
+> Number of nodes?
+> 
+> Tasks per node?
+> 
+> Walltime?
+> 
+> Budget (or Account) the job is charged to?
+> 
 > > ## Solution
 > > Defaults are:
-> > * Number of nodes: 1
-> > * Tasks per node: 1
-> > * Walltime: 5 minutes
-> > * Budget: None - fails if submitted without a budget specified
+> > 
+> > Number of nodes: 1
+> > 
+> > Tasks per node: 1
+> > 
+> > Walltime: 5 minutes
+> > 
+> > Budget: None - fails if submitted without a budget specified
 > {: .solution}
 {: .challenge}
 
@@ -266,6 +276,7 @@ srun --nodes=4 --ntasks-per-node=128 xthi
 > 
 > Once you have your answers run them in job scripts and check that the binding of tasks to 
 > nodes and cores output by `xthi` is what you expect.
+> 
 > > ## Solution
 > > `srun --nodes=4 --ntasks-per-node=64 xthi`
 > >
