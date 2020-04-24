@@ -230,7 +230,7 @@ it stops them immediately.
 > SLURM on ARCHER2 can also send e-mails to notify you when your job starts, ends, fails, etc. Can
 > you find out how you would setup your job script to send you an e-mail when your job finishes and
 > when it fails? Test your answer, does it work?
-> > ## Solution
+> > ## Solution
 > > The option `--mail-type=END,FAIL` will send mailings to you when the job ends or fails. You can
 > > also use the event `TIME_LIMIT` to notify you if a job reaches its walltime without finishing and
 > > the events `TIME_LIMIT_50`, `TIME_LIMIT_80` and `TIME_LIMIT_90` to notify you when your job is
@@ -275,7 +275,7 @@ srun --nodes=4 --ntasks-per-node=128 xthi
 > Once you have your answers run them in job scripts and check that the binding of tasks to 
 > nodes and cores output by `xthi` is what you expect.
 > 
-> > ## Solution
+> > ## Solution
 > > `srun --nodes=4 --ntasks-per-node=64 xthi`
 > >
 > > `srun --nodes=8 --ntasks-per-node=2 --ntasks-per-socket=1 xthi`
