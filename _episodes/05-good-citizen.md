@@ -1,5 +1,5 @@
 ---
-title: "Different EPCC Service Desks"
+title: "How to be a good ARCHER2 citizen"
 teaching: 10
 exercises: 0
 questions:

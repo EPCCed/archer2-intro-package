@@ -112,6 +112,7 @@ directory will be at:
 > ## Jobs can't see your data?
 > If your jobs are having trouble accessing your data make sure you have placed it on work
 > rather than home. Remember, the home file systems are not visible from the compute nodes.
+{: .callout}
 
 ### Solid State
 
