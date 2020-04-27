@@ -85,5 +85,9 @@ for you or a research software engineer (RSE) of your choice to improve or add f
 to research software on ARCHER2. To find out more about the eCSE programme and how to apply,
 see [the ARCHER2 eCSE pages](https://www.archer2.ac.uk/ecse/)
 
+## Acknowledging ARCHER2
+
+**TODO** Add ARCHER2 DOI
+
 {% include links.md %}
 

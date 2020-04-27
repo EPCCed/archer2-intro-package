@@ -29,6 +29,34 @@ More information on using SAFE can be found in
 
 ## Account management
 
+You will have at least two accounts associated with your use of ARCHER2: an account on the
+SAFE web tool and ARCHER2 login (sometimes called *machine*) accounts.
+
+> ## Multiple login accounts
+> You can have multiple ARCHER2 login accounts associated with a single SAFE account. Many
+> users will also have access to the EPSRC Tier-2 HPC resources and login accounts for those
+> systems will often also be linked to our SAFE account. So you can actually have multiple
+> login accounts on multiple services associated with a single SAFE account!
+
+We will not document the full use of SAFE here but will mention a few of the most useful
+options with managing your different accounts.
+
+### Your SAFE account
+
+Your SAFE account is used to allow you to manage your login accounts and resources, set
+contact details and preferences, record research outputs associated with your use of the
+service and report on your historical use of the service. We cover these topics in more
+detail below but first we will look at:
+
+* Using your institution's single sign on (SSO) to access SAFE
+* Changing your e-mail notification preferences
+
+### Your ARCHER2 login account(s)
+
+* Resetting your password
+* Adding access to licensed software
+* Viewing resources available
+
 ## Recording research outputs
 
 ## Reporting on your use of the service
