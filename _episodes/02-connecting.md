@@ -43,6 +43,8 @@ would be supported.
 > 
 {: .challenge}
 
+**TODO** Add other questions and solutions
+
 ## SSH keys
 
 As well as password access, users can add the public part of an SSH key pair to access ARCHER2.

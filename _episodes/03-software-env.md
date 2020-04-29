@@ -14,6 +14,7 @@ keypoints:
 - "The CSE service can help with software issues."
 ---
 
+
 ## Using software modules on ARCHER2
 
 ARCHER2 software modules use the [Lmod](https://lmod.readthedocs.io/en/latest/) system to provide
@@ -227,7 +228,7 @@ once this has been done.
 
 You can find more information on the software available on ARCHER2 in the ARCHER2 Documentation at:
 
-* https://docs.archer2.ac.uk
+* [ARCHER2 Documentation](https://docs.archer2.ac.uk)
 
 This includes information on the software provided by Cray and the software provided by the 
 ARCHER2 CSE Service at EPCC.

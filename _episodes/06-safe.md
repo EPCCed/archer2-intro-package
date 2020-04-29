@@ -27,7 +27,7 @@ ARCHER2.
 More information on using SAFE can be found in
 [the SAFE User Guide](https://www.archer2.ac.uk/documentation/safe-guide/)
 
-## Account management
+## Account management
 
 You will have at least two accounts associated with your use of ARCHER2: an account on the
 SAFE web tool and ARCHER2 login (sometimes called *machine*) accounts.
@@ -42,7 +42,7 @@ SAFE web tool and ARCHER2 login (sometimes called *machine*) accounts.
 We will not document the full use of SAFE here but will mention a few of the most useful
 options with managing your different accounts.
 
-### Your SAFE account
+### Your SAFE account
 
 Your SAFE account is used to allow you to manage your login accounts and resources, set
 contact details and preferences, record research outputs associated with your use of the
@@ -64,7 +64,7 @@ lists associated with the ARCHER2 service and you can subscribe to any combinati
 You can change your preferences in SAFE by use the *Your details - Update email settings*
 menu option. You can then select the mailing lists you wish to subscribe to.
 
-### Your ARCHER2 login account(s)
+### Your ARCHER2 login account(s)
 
 There can be multiple login accounts associated with a single SAFE account. Each of these
 accounts will be listed in the *Login accounts* menu. Selecting a particular login account

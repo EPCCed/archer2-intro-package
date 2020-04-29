@@ -136,13 +136,13 @@ job submission scripts. The scheduling software is SLURM.
 
 As well as the hardware and system software, Cray supply the Cray Programming Environment which
 contains:
-* Compilers: GCC, Cray Compilers (CCE), AMD Compilers (AOCC)
-* Parallel libraries: Cray MPI (MPICH2-based), OpenSHMEM, Global Arrays
-* Scientific and numerical libraries: BLAS/LAPACK/BLACS/ScaLAPACK (Cray LibSci, AMD AOCL), FFTW3, HDF5, NetCDF
-* Debugging and profiling tools: gdb4hpc, valgrind4hpc, CrayPAT + others
-* Optimised Python 3 and R environments:
-  * Python 3: numpy, scipy, mpi4py, dask
-  * R: standard packages (including "parallel")
+
+| Compilers | GCC, Cray Compilers (CCE), AMD Compilers (AOCC) |
+| Parallel libraries | Cray MPI (MPICH2-based), OpenSHMEM, Global Arrays |
+| Scientific and numerical libraries | BLAS/LAPACK/BLACS/ScaLAPACK (Cray LibSci, AMD AOCL), FFTW3, HDF5, NetCDF |
+| Debugging and profiling tools | gdb4hpc, valgrind4hpc, CrayPAT + others |
+| Optimised Python 3 environment | numpy, scipy, mpi4py, dask |
+| Optimised R environment | standard packages (including "parallel") |
 
 On top of the Cray-provided software, the EPCC ARCHER2 CSE service have installed a wide range 
 of modelling and simulation software, additional scientific and numeric libraries, data analysis

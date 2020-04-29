@@ -32,7 +32,7 @@ time(s) for a callback.
 
 The ARCHER2 service has extensive documentation available at:
 
-* https://docs.archer2.ac.uk
+* [ARCHER2 Documentation](https://docs.archer2.ac.uk)
 
 This documentation covers:
 
@@ -59,7 +59,7 @@ and to suit many different levels. Following on from this course, you may be par
 Details of courses, the upcoming schedule and information on how to register can be found on
 [the ARCHER2 training pages](https://www.archer2.ac.uk/training/).
 
-## Getting access to ARCHER2 for your research
+## Getting access to ARCHER2 for your research
 
 There are a number of different routes to obtain access to ARCHER2 resources.
 
@@ -78,7 +78,7 @@ Other potential access routes include:
 If you have questions on any of these access routes then please
 [contact the ARCHER2 Service Desk](https://www.archer2.ac.uk/support-access/servicedesk.html)
 
-## eCSE: help with improving and adding functionality to research software
+## eCSE: help with improving and adding functionality to research software
 
 The ARCHER2 embedded computational science and engineering (eCSE) programme provides funding 
 for you or a research software engineer (RSE) of your choice to improve or add functionality
