@@ -135,8 +135,10 @@ The lesson aims to answer the following questions:
 <hr/>
 
 > ## Prerequisites
->
-> None
+> You should have used remote HPC facilities before. In particular, you should be happy with connecting
+> using SSH, know what a batch scheduling system is and be familiar with using the Linux command line.
+> You should also be happy editing plain text files in a remote terminal (or, alternatively, editing them
+> on your local system and copying them to the remote HPC system using `scp`).
 {: .prereq}
 
 <hr/>
