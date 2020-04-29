@@ -53,6 +53,19 @@ If you experience performance issues with a login node you should report it to t
 [ARCHER2 Service Desk](https://www.archer2.ac.uk/support-access/servicedesk.html) for them
 to investigate.
 
+You should not use ARCHER2 login nodes to login to other, external services. Outgoing SSH
+connections will be killed.
+
+## Do not share your login credentials
+
+You should not share your login details (account name and password) with anyone else. If 
+we detect evidence of account sharing of this form we will require you to reset your password
+and choose a new password.
+
+Accessing another ARCHER2 user account from your account is also not allowed (as this would
+allow you to potentially capture the credentials for the other account). If we detect this
+behaviour we will require both people involved to reset their login account passwords.
+
 ## Test before scaling
 
 Remember that you are charged for usage on ARCHER2. A simple mistake in a 
