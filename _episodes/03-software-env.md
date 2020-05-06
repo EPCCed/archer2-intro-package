@@ -218,7 +218,7 @@ to apply for your account and retrieve your initial password) by being added to 
    requested at the top of the screen such as the licence holder's name and contact details. If you are
    covered by the license because the licence holder is your supervisor, for example, please state this.
 6. Click *Submit*
-7. 
+
 Your request will then be processed by the ARCHER2 Service Desk who will confirm your license with the
 software owners/developers before enabling your access to the software on ARCHER2. This can take several
 days (depending on how quickly the software owners/developers take to respond) but you will be advised
