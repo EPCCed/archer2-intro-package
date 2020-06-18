@@ -142,7 +142,7 @@ two nodes.
 
 ```
 #!/bin/bash
-#SBATCH -job-name=my_mpi_job
+#SBATCH --job-name=my_mpi_job
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=128
 #SBATCH --time=0:10:0
