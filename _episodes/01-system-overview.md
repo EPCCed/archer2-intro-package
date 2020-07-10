@@ -110,23 +110,21 @@ directory will be at:
 ```
 
 > ## Jobs can't see your data?
-> If your jobs are having trouble accessing your data make sure you have placed it on work
-> rather than home. Remember, the home file systems are not visible from the compute nodes.
+> If your jobs are having trouble accessing your data make sure you have placed it on Work
+> rather than Home. Remember, the home file systems are not visible from the compute nodes.
 {: .callout}
 
 ### Solid State
 
 The solid state storage system is available on the compute nodes and is designed for
 the highest read and write performance to improve performance of workloads that are I/O bound in
-some way. Access to solid state storage resources is controlled through the SLURM scheduling 
+some way. Access to solid state storage resources is controlled through the Slurm scheduling 
 system. The solid state storage is not backed up in any way. There is a total of 1.1 PB usable
 space available on the solid state storage system.
 
 Data on the solid state storage is transient so all data you require before a job starts or
 after a job finishes must be *staged* on to or off of the solid state storage. We discuss how
 this works in the Scheduler episode later.
-
-**TODO** Add RDF details.
 
 ## System software
 
@@ -164,6 +162,8 @@ ARCHER2 also supports the use of Singularity containers for single and multi-nod
 > Speak to your neighbour about your planned use of ARCHER2. Given what you now know about the system,
 > what do you think the biggest opportunities are for your research in using ARCHER2? What do you think
 > the largest challenges are going to be for you?
+> 
+> Write a few sentences in the course Etherpad describing the opportunities and challenges you discussed.
 {: .challenge}
 
 {% include links.md %}

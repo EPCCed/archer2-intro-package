@@ -32,50 +32,46 @@ All users start with a default set of modules loaded into their environment
 You can query which software is provided by modules with the `module avail` command:
 
 ```
-module avail
+auser@login01-nmn:~> module avail
 ```
-{: .bash}
+{: .language-bash}
 ```
-[auser@archer2-login1 ~]$ module avail
+------------------------------------------- /opt/cray/pe/perftools/20.05.0/modulefiles -------------------------------------------
+perftools       perftools-lite-events  perftools-lite-hbm    perftools-nwpc     
+perftools-lite  perftools-lite-gpu     perftools-lite-loops  perftools-preload  
 
------------------------------------------------- /home/software/modulefiles ------------------------------------------------
-   anaconda2/2019-GNU7        mercury/latest                   parmetis/4.0.3
-   anaconda2/2019      (D)    mercury/1.0.1             (D)    phdf5/1.10.5/gnu
-   anaconda3/2019             mesa/18.0.0                      phdf5/1.10.5/gnu7          (D)
-   arm-forge/h2020            metis/5.1.0                      phdf5/1.10.5/gnu8
-   boost/1.69.0-GNU           mpi4py/python2-openmpi           pmdk/1.6
-   cmake/3.14.4               mpi4py/python2                   python2-dill/0.2.9
-   embree/3.5.2               mpi4py/python3-openmpi           python2/2.7.13-debug-forge
-   fftw/3.3.8/gnu             mpi4py/python3            (D)    python2/2.7.13-debug
-   fftw/3.3.8/gnu7            ncurses/6.1                      python2/2.7.13             (D)
-   fftw/3.3.8/gnu8            ndctl/v67                        python3-dill/0.2.9
-   fftw/3.3.8/intel    (D)    netcdf-fortran/4.4.5/gnu         python3-future/0.17.0
-   gdb/8.3                    netcdf-fortran/4.4.5/gnu7        python3-six/1.12.0
-   glfw/3.3                   netcdf-fortran/4.4.5/gnu8 (D)    python3-sphinx/2.0.1
-   go/1.12.7                  netcdf/4.7.0/gnu                 python3/3.6.8-debug-forge
-   gperftools/2.7-GNU         netcdf/4.7.0/gnu7                python3/3.6.10             (D)
-   htop/2.2.0                 netcdf/4.7.0/gnu8         (D)    rapidjson/1.1.0
-   ispc/1.11.0                openblas/0.3.6-GNU        (D)    scipy/1.2.3
-   java/13-JDK                openblas/0.3.6-GNU7              scons/3.0.5
-   lapack/3.9.0-GNU7          openmpi/1.10.7-GNU               scotch/6.0.7
-   libfabric/latest           openmpi/1.10.7-GNU7              sionlib/1.7.4
-   libfabric/1.6.2            openmpi/1.10.7-Intel             snappy/1.1.7
-   libfabric/1.7.1     (D)    openmpi/2.0.4-GNU7               vampir/9.7.1
-   libfabric/1.8.0            openmpi/4.0.3-GNU7               vtk/5.10.1-GNU7
-   libunwind/1.3.1            otf2/2.1.1                       vtk/5.10.1
-   likwid/5.0.1               papi/5.7.1.0                     vtk/8.2.0                  (D)
-   memkind/1.9.0              paraview/5.7.0                   zoltan/3.8.3
+--------------------------------------------- /opt/cray/pe/craype/2.6.4/modulefiles ----------------------------------------------
+craype-hugepages1G  craype-hugepages4M   craype-hugepages32M   craype-hugepages256M  craype-network-slingshot10  
+craype-hugepages2G  craype-hugepages8M   craype-hugepages64M   craype-hugepages512M  craype-x86-rome             
+craype-hugepages2M  craype-hugepages16M  craype-hugepages128M  craype-network-none   
 
-  Where:
-   D:  Default Module
-   L:  Module is loaded
+------------------------------------------------- /usr/local/Modules/modulefiles -------------------------------------------------
+dot  module-git  module-info  modules  null  use.own  
 
-Module defaults are chosen based on Find First Rules due to Name/Version/Version modules found in the module tree.
-See https://lmod.readthedocs.io/en/latest/060_locating.html for details.
+---------------------------------------------------- /opt/cray/pe/modulefiles ----------------------------------------------------
+atp/3.5.4(default)                    cray-libsci/20.03.1.4(default)             craype-dl-plugin-py3/20.05.1     
+cce/10.0.0(default)                   cray-mpich-abi/8.0.10                      craype/2.6.4(default)            
+cray-ccdb/4.5.4(default)              cray-mpich/8.0.10(default)                 craypkg-gen/1.3.9(default)       
+cray-cti/2.5.6(default)               cray-netcdf-hdf5parallel/4.6.3.2(default)  gdb4hpc/4.5.6(default)           
+cray-dsmml/0.1.0(default)             cray-netcdf/4.6.3.2(default)               iobuf/2.0.9(default)             
+cray-fftw/3.3.8.4(default)            cray-openshmemx/10.1.0(default)            papi/5.7.0.3(default)            
+cray-fftw/3.3.8.5                     cray-parallel-netcdf/1.11.1.1(default)     perftools-base/20.05.0(default)  
+cray-ga/5.7.0.3                       cray-pmi-lib/6.0.5(default)                PrgEnv-cray/7.0.0(default)       
+cray-hdf5-parallel/1.10.5.2(default)  cray-pmi/6.0.5(default)                    PrgEnv-gnu/7.0.0(default)        
+cray-hdf5/1.10.5.2(default)           cray-stat/4.4.5(default)                   valgrind4hpc/2.5.5(default)      
 
-Use "module spider" to find all possible modules.
-Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
+----------------------------------------------------- /opt/cray/modulefiles ------------------------------------------------------
+capsules/0.8.3(default)                                                                 
+chapel/1.20.1(default)                                                                  
+cray-lustre-client/2.12.0.5_cray_166_gf6711cf-7.0.1.0_2.24__gf6711cfb3.shasta(default)  
+cray-shasta-mlnx-firmware/1.0.5(default)                                                
+dvs/2.12_2.2.259-7.0.1.0_6.1__g6ee74127(default)                                        
+libfabric/1.10.0.0.249(default)                                                         
+spark/3.0.0(default)                                                                    
+xpmem/2.2.35-7.0.1.0_3.9__gfa8d091.shasta(default)                                      
 
+-------------------------------------------------------- /opt/modulefiles --------------------------------------------------------
+cray-python/3.8.2.0(default)  cray-R/3.6.3(default)  gcc/8.1.0  gcc/9.3.0(default)  
 
 ```
 {: .output}
@@ -90,39 +86,81 @@ are multiple versions available and you do not specify the version when you load
 > is provided below.
 {: .callout}
 
-If you want more information on a particular module, you can use the `module spider` command. For example,
-to get more info on the `netcdf` module:
+If you want more information on a particular module, you can use the `module help` command. For example,
+to get more info on the `cray-netcdf` module:
 
 ```
-[auser@archer2-login1 ~]$ module spider netcdf
+aturner@login01-nmn:~> module help cray-netcdf
 ```
-{: .bash}
+{: .language-bash}
 ```
-------------------------------------------------------------------------------------------------------------------------
-  netcdf:
-------------------------------------------------------------------------------------------------------------------------
-    Description:
-      C Libraries for the Unidata network Common Data Form 
+-------------------------------------------------------------------
+Module Specific Help for /opt/cray/pe/modulefiles/cray-netcdf/4.6.3.2:
 
-     Versions:
-        netcdf/4.5.0
-        netcdf/4.6.2
-     Other possible modules matches:
-        netcdf-cxx  netcdf-fortran  netcdf-fortran/4.4.5  netcdf/4.7.0
 
-------------------------------------------------------------------------------------------------------------------------
-  To find other possible module matches execute:
+cray-netcdf
+===========
 
-      $ module -r spider '.*netcdf.*'
+Release Date:
+-------------
+  November 2019
 
-------------------------------------------------------------------------------------------------------------------------
-  For detailed information about a specific "netcdf" module (including how to load the modules) use the module's full name.
-  For example:
+Purpose:
+--------
+  * Support for AMD's AOCC compiler.
+  * Fixes a broken symlink for the 'bin' directory.
 
-     $ module spider netcdf/4.6.2
-------------------------------------------------------------------------------------------------------------------------
+Product and OS Dependencies:
+----------------------------
+  The NetCDF release is supported on the following Cray systems:
+    * Cray XC systems with CLE 6.0 or later
+
+  The NetCDF 4.6.3.2 release requires the following software products:
+
+    Cray HDF5 1.10.5.*
+    CrayPE 2.1.2 or later
+
+    One or more compilers:
+        CCE 8.7 or later
+        GCC 7.3 or later
+        Intel 19.0 or later
+        PGI 19.0 or later
+        Allinea 18.2.0 or later
+        AOCC 2.0 or later
+
+Notes and Limitations:
+---------------------
+    Unidata now packages Netcdf-4 and legacy netcdf-3 separately. Cray has
+    decided not to continue supplying the legacy Netcdf-3 package. Due to CCE
+    changes a version of netcdf built with "-sreal64" is neither needed nor
+    provided.
+
+    NetCDF is supported on the host CPU but not on the accelerator on
+    Cray XC systems.
+
+Documentation:
+--------------
+    http://www.unidata.ucar.edu/software/netcdf/docs
+
+Modulefile:
+-----------
+    module load cray-netcdf
+    OR
+    module load cray-netcdf-hdf5parallel
+
+Product description:
+--------------------
+  NetCDF (network Common Data Form) is a set of interfaces for array-oriented
+  data access and a freely-distributed collection of data access libraries for
+  C, Fortran, C++, Java, and other languages. The netCDF libraries support a
+  machine-independent format for representing scientific data. Together, the
+  interfaces, libraries, and format support the creation, access, and sharing
+  of scientific data.
 ```
 {: .output}
+
+
+<!-- Commented out until Lmod is really available and we can test
 
 If you ask for more detailed information on a module, it will also tell you any modules that need to be
 loaded as prerequisites to loading your chosen modules (i.e. the `netcdf/4.6.2` module's *dependencies*).
@@ -148,6 +186,7 @@ The Lmod tool will load these dependencies for you when you load the module (see
  
 ```
 {: .output}
+-->
 
 ## Loading and switching modules
 
@@ -155,45 +194,53 @@ Lets look at our environment before we change anything. To see just our loaded m
 `module list` (or `ml`) command:
 
 ```
-[auser@archer2-login1 ~]$ ml
+auser@login01-nmn:~> ml
 ```
-{: .bash}
+{: .language-bash}
 ```
-Currently Loaded Modules:
-  1) autotools   2) prun/1.3   3) intel/19.0.3.199   4) impi/2019.3.199   5) ohpc   6) packages-nextgenio
+Currently Loaded Modulefiles:
+ 1) cce/10.0.0(default)              5) craype/2.6.4(default)             9) cray-dsmml/0.1.0(default)                           
+ 2) cray-libsci/20.03.1.4(default)   6) craype-x86-rome                  10) perftools-base/20.05.0(default)                     
+ 3) cray-mpich/8.0.10(default)       7) libfabric/1.10.0.0.249(default)  11) xpmem/2.2.35-7.0.1.0_3.9__gfa8d091.shasta(default)  
+ 4) PrgEnv-cray/7.0.0(default)       8) craype-network-slingshot10 
 ```
 {: .output}
 
-You load modules with the `module load` (or `ml`) command. For example, to load the `netcdf` module:
+You load modules with the `module load` (or `ml`) command. For example, to load the `cray-netcdf` module:
 
 ```
-[auser@archer2-login1 ~]$ ml netcdf
+auser@login01-nmn:~> ml cray-netcdf
 ```
-{: .bash}
+{: .language-bash}
 
 > ## `ml` has two meanings
 > Notice the the convenience command `ml` has a different meaning depending on whether or not you 
 > supply an argument. Without an argument it means `module list` and with an argument, it means
 > `module load`.
-{: .callout
-
-}
+{: .callout}
 
 Now, lets list our loaded modules again with `ml`:
 
 ```
-[auser@archer2-login1 ~]$ ml
+auser@login01-nmn:~> ml
 ```
-{: .bash}
+{: .language-bash}
 ```
-Currently Loaded Modules:
-  1) autotools   3) intel/19.0.3.199   5) ohpc                 7) phdf5/1.10.4
-  2) prun/1.3    4) impi/2019.3.199    6) packages-nextgenio   8) netcdf/4.6.2
+Currently Loaded Modulefiles:
+ 1) cce/10.0.0(default)              5) craype/2.6.4(default)             9) cray-dsmml/0.1.0(default)                           
+ 2) cray-libsci/20.03.1.4(default)   6) craype-x86-rome                  10) perftools-base/20.05.0(default)                     
+ 3) cray-mpich/8.0.10(default)       7) libfabric/1.10.0.0.249(default)  11) xpmem/2.2.35-7.0.1.0_3.9__gfa8d091.shasta(default)  
+ 4) PrgEnv-cray/7.0.0(default)       8) craype-network-slingshot10       12) cray-netcdf/4.6.3.2(default) 
 ```
 {: .output}
 
-You can see that as well as the default `netcdf` module (`netcdf/4.6.2` as we did not specify a version
-explicitly) Lmod has also loaded the dependencies for the default `netcdf` module.
+You can see that as well as the default `cray-netcdf` module (`cray-netcdf/4.6.3.2` as we did not specify a version
+explicitly).
+
+<!--
+  Note: Once Lmod is working, we likely want to choose a module that has dependencies so we 
+  can note that Lmod has automatically loaded dependencies.
+-->
 
 If you want to swap two versions of the same module then you simply load the version that you 
 want to swap for the currently loaded version, Lmod recognises that they are the same module 
@@ -210,7 +257,7 @@ You request access to licensed software through the EPCC SAFE (the web administr
 to apply for your account and retrieve your initial password) by being added to the appropriate
 *Package Group*. To request access to licensed software:
 
-1. Log in to [SAFE](https://www.archer.ac.uk/safe/) (**TODO** Update SAFE link)
+1. Log in to [SAFE](https://safe.epcc.ed.ac.uk)
 2. Go to the Menu *Login accounts* and select the login account which requires access to the software
 3. Click *New Package Group Request*
 4. Select the software from the list of available packages and click *Select Package Group*

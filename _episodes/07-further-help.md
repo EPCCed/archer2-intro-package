@@ -54,7 +54,7 @@ and to suit many different levels. Following on from this course, you may be par
   system when using that particular software.
 * Software/Data Carpentry - improve your software and data analysis skills with these official
   [Carpentries](https://www.carpentries.org) courses.
-* Using Containers - this course provides an introduction to the use of Containers in a research setting.
+* Reproducible computational environments using containers - this course provides an introduction to the use of Containers in a research setting.
 
 Details of courses, the upcoming schedule and information on how to register can be found on
 [the ARCHER2 training pages](https://www.archer2.ac.uk/training/).
@@ -71,12 +71,12 @@ ability to apply for a small amount of ARCHER2 time for use for their research.
 Other potential access routes include:
 
 * Access Through [the EPSRC/NERC Scientific Consortia](https://www.archer2.ac.uk/research/consortia/) - Time for projects within consortia remits. Often the simplest method of getting access if your research is in the remit of one of the consortia.
-* ARCHER2 Instant Access - Small amounts of time to test ARCHER, provide proof of concept, or obtain scaling information for full applications (EPSRC remit science only).
+* ARCHER2 pump-priming - Small amounts of time to test ARCHER, provide proof of concept, or obtain scaling information for full applications (EPSRC remit science only).
 * ARCHER2 resources via research grants - larger amounts of time associated with the research project proposed. How this works depends on the grant awarding body.
-* UKRI national HPC resource calls - large amounts of resource for up to a year.
+* UKRI Access to HPC resource calls - large amounts of resource for up to a year.
 
-If you have questions on any of these access routes then please
-[contact the ARCHER2 Service Desk](https://www.archer2.ac.uk/support-access/servicedesk.html)
+More information on these access routes is available on
+[the ARCHER2 access page](https://www.archer2.ac.uk/support-access/access.html)
 
 ## eCSE: help with improving and adding functionality to research software
 
