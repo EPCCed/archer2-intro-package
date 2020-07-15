@@ -25,7 +25,7 @@ to users are:
 All of the node types have the same processors: AMD EPYC Zen2 7742, 2.25GHz, 64-cores. All nodes
 are dual socket nodes so there are 128 cores per node.
 
-**TODO** Add diagram of the ARCHER2 architecture
+<img src="/fig/archer2_architecture.png" width="60%" title="ARCHER2 architecture" alt="ARCHER2 architecture diagram" />
 
 ## Compute nodes
 
