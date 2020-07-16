@@ -16,7 +16,7 @@ keypoints:
 ## Architecture
 
 The ARCHER2 Cray Shasta system consists of a number of different node types. The ones visible
-to users are:
+to users include:
 
 * Login nodes
 * Compute nodes
