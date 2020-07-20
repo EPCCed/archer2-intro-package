@@ -179,7 +179,7 @@ Data on the solid state storage is transient so all data you require before a jo
 after a job finishes must be *staged* on to or off of the solid state storage. We discuss how
 this works in the Scheduler episode later.
 
-### Sharing data with other users
+### Sharing data with other users
 
 Both the home and work file systems have special directories that allow you to share data 
 with other users. There are directories that allow you to share data only with other users
