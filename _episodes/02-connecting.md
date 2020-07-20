@@ -43,11 +43,14 @@ long, but comparatively simple passwords. For example, passwords in the style of
 > 2. `rainbowllamajumping`
 > 3. `A!94ufskl$?`
 > 4. `horsebatterystaple`
+> 
 > > ## Solution
-> > 1. This would not be accepted or a good choice as it is too short
-> > 2. This would be a good choice as it is long enough and easy to remember
-> > 3. This would be accepted but may be difficult to remember and type (though you could use a password manager to store it)
-> > 4. While this meets the criteria, it is a well known example from a popular web comic and so would not be accepted
+> >
+> > 1. **No** This would not be accepted or a good choice as it is too short and is made up of obvious words
+> > 2. **Yes** This would be a good choice as it is long enough and easy to remember
+> > 3. **Yes** This would be accepted but may be difficult to remember and type (though you could use a password manager to store it)
+> > 4. **No** While this meets the criteria, it is a well known example from a popular web comic and so would not be accepted
+> >
 > {: .solution}
 {: .challenge}
 
@@ -99,8 +102,9 @@ Here are the main points you should consider:
 * **Be aware of encryption overheads.** When transferring data using `scp` (and `rsync` over `scp`)
   your data will be encrypted introducing a static overhead per file. This issue can be minimised by
   reducing the number files to be transferred by creating archives. You can also change the encryption
-  algorithm to one that involves minimal encryption. (**TODO** Check what minimal ciphers are available
-  on ARCHER2 as arcfour may be disabled in newer OpenSSL.)
+  algorithm to one that involves minimal encryption. The fastest performing cipher that is commonly 
+  available in SSH at the moment is generally `aes128-ctr` as most common processors provide a
+  hardware implementation.
 
 > ## Creating an uncompressed zip archive and verifying the contents
 > Using the documentation above, find the command you would use to create an uncompressed zip archive

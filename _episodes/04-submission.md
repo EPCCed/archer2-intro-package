@@ -1,7 +1,7 @@
 ---
 title: "ARCHER2 scheduler: Slurm"
 teaching: 20
-exercises: 10
+exercises: 15
 questions:
 - "How do I write job submission scripts?"
 - "How do I control jobs?"

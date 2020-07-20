@@ -16,7 +16,7 @@ keypoints:
 ## Architecture
 
 The ARCHER2 Cray Shasta system consists of a number of different node types. The ones visible
-to users include:
+to users are:
 
 * Login nodes
 * Compute nodes
@@ -25,7 +25,8 @@ to users include:
 All of the node types have the same processors: AMD EPYC Zen2 7742, 2.25GHz, 64-cores. All nodes
 are dual socket nodes so there are 128 cores per node.
 
-<img src="/fig/archer2_architecture.png" width="60%" title="ARCHER2 architecture" alt="ARCHER2 architecture diagram" />
+{% include figure.html url="" max-width="80%" file="/fig/archer2_architecture.png" 
+alt="ARCHER2 architecture diagram" caption="ARCHER2 architecture" %}
 
 ## Compute nodes
 

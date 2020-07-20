@@ -1,6 +1,6 @@
 ---
 title: "ARCHER2 software environment "
-teaching: 10
+teaching: 15
 exercises: 0
 questions:
 - "What does the ARCHER2 software environment look like and how do I access software?"
@@ -14,6 +14,7 @@ keypoints:
 - "The CSE service can help with software issues."
 ---
 
+<!-- TODO: Need to check all material here once Lmod is actually available -->
 
 ## Using software modules on ARCHER2
 
@@ -23,9 +24,24 @@ change across the lifetime of the service.
 
 Software modules are provided by both Cray and the ARCHER2 CSE team at [EPCC](https://www.epcc.ed.ac.uk).
 
-## What modules are loaded when you log into ARCHER2?
+## What modules are loaded when you log into ARCHER2?
 
-All users start with a default set of modules loaded into their environment
+All users start with a default set of modules loaded into their environment. These include:
+
+   - Cray Compiler Environment (CCE)
+   - Cray MPICH2 MPI library
+   - Cray LibSci scientific and numerical libraries
+   - Cray lightweight performance analysis toolkit
+   - System modules to enable use of the ARCHER2 hardware
+
+> ## Do not purge!
+> 
+> Unlike many other HPC systems you may have used, you should not use the `module purge` 
+> command before starting to use the system. Some of the modules loaded by default are
+> required for you to be able to use the system correctly and so many things will not
+> work if you use `module purge`. If you need to change the setup, you will generally 
+> use `module load` instead.
+{: .callout}
 
 ## Finding out what software is available
 
@@ -185,10 +201,10 @@ The Lmod tool will load these dependencies for you when you load the module (see
       intel/19.0.3.199  mvapich2/2.3
  
 ```
-{: .output}
--->
+{: .output} -->
 
-## Loading and switching modules
+
+## Loading and switching modules
 
 Lets look at our environment before we change anything. To see just our loaded modules we use the
 `module list` (or `ml`) command:
@@ -239,14 +255,13 @@ explicitly).
 
 <!--
   Note: Once Lmod is working, we likely want to choose a module that has dependencies so we 
-  can note that Lmod has automatically loaded dependencies.
--->
+  can note that Lmod has automatically loaded dependencies. -->
 
 If you want to swap two versions of the same module then you simply load the version that you 
 want to swap for the currently loaded version, Lmod recognises that they are the same module 
-with different versions and swaps them for you. 
+with different versions and swaps them for you.
 
-## Licensed software
+## Licensed software
 
 Some of the software installed on ARCHER2 requires a user to have a valid licence agreed with the 
 software owners/developers to be able to use it (for example, VASP). Although you will be able to
