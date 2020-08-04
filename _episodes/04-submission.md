@@ -306,9 +306,14 @@ using `srun` for the multiple OpenMP threads that will be associated with each M
 As we saw above, you can use the options to `sbatch` to control how many parallel tasks are
 placed on each compute node and can use the `--cpus-per-task` option to set the stride 
 between parallel tasks to the right value to accommodate the OpenMP threads - the value
-for `--cpus-per-task` should usually be the same as that for `OMP_NUM_THREADS`. Finally,
-you need to specify `--threads-per-core=1` to ensure that the threads use physical
-cores rather than SMT (hardware threading).
+for `--cpus-per-task` should usually be the same as that for `OMP_NUM_THREADS`. To ensure
+you get the correct thread pinning, you also need to specify an additional OpenMP environment
+variable and a couple of additional options to `srun`. Specifically:
+
+   - Set the `OMP_PLACES` environment variable to `cores` with `export OMP_PLACES=cores` in 
+     you job submission script
+   - Add the `--hint=nomultithread` option to `srun`
+   - Add the `--distribution=block:block` option to `srun`
 
 As an example, consider the job script below that runs across 2 nodes with 8 MPI tasks
 per node and 16 OpenMP threads per MPI task (so all 256 cores across both nodes are used).
@@ -319,17 +324,17 @@ per node and 16 OpenMP threads per MPI task (so all 256 cores across both nodes 
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=8
 #SBATCH --cpus-per-task=16
-#SBATCH --threads-per-core=1
 #SBATCH --time=0:10:0
 #SBATCH --account=t01
 
 module load xthi
 
 export OMP_NUM_THREADS=16
+export OMP_PLACES=cores
 
 # Load modules, etc.
 # srun to launch the executable
-srun --cpu-bind=cores xthi
+srun --hint=nomultithread --distribution=block:block xthi
 ```
 {: .language-bash}
 
@@ -364,24 +369,18 @@ In this section we briefly introduce other scheduler topics that may be useful t
 provide links to more information on these areas for people who may want to explore these 
 areas more. 
 
-### Interactive jobs: `salloc` 
+### Interactive jobs: direct `srun` 
 
-Similar to the batch jobs covered above, users can also run interactive jobs using the Slurm
-command `salloc`. `salloc` takes the same arguments as `sbatch` but, obviously, these are 
-specified on the command line rather than in a job submission script.
-
-Once you the job requested with `salloc` starts, you will be returned to the command line 
-and can now start parallel jobs on the compute nodes interactively with the `srun` command
-in the same way as you would within a job submission script.
+Similar to the batch jobs covered above, users can also run interactive jobs using the `srun`
+command directly. `srun` used in this way takes the same arguments as `sbatch` but, obviously, these are 
+specified on the command line rather than in a job submission script. As for `srun` within 
+a batch job, you should also provide the name of the executable you want to run.
 
 For example, to execute `xthi` across all cores on two nodes (1 MPI task per core and no
 OpenMP threading) within an interactive job you would issue the following commands:
 
 ```
-auser@login01-nmn:~> salloc --nodes=2 --ntasks-per-node=128 --cpus-per-task=1 --time=0:10:0 --account=t01
-salloc: Granted job allocation 24236
-auser@login01-nmn:~> module load xthi
-auser@login01-nmn:~> srun xthi
+auser@login01-nmn:~> srun --nodes=2 --ntasks-per-node=128 --cpus-per-task=1 --time=0:10:0 --account=t01 xthi
 ```
 {: .language-bash}
 ```
@@ -407,15 +406,6 @@ Hello from rank 53, thread 0, on nid000001. (core affinity = 86,214)
 ```
 {: .output}
 
-Once you hav finished your interactive commands, you exit the interactive job with `exit`:
-
-```
-auser@login01-nmn:~> exit
-exit
-salloc: Relinquishing job allocation 24236
-auser@login01-nmn:~>
-```
-{: .language-bash}
 
 <!-- Need to add information on the solid state storage and Slurm once it is in place
 
