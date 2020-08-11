@@ -1,7 +1,7 @@
 ---
 title: "How to be a good ARCHER2 citizen"
-teaching: 10
-exercises: 0
+teaching: 30
+exercises: 10
 questions:
 - "How can I be a responsible user?"
 - "How can I protect my data?"
@@ -55,6 +55,7 @@ with the *PID* to terminate any processes that are using large amounts of resour
 > > 4. Likely not OK - the name of the program implies that it may run a resource intensive simulation.
 > > 5. OK - Expanding small data archives would usually be fine on the login nodes. Extracting very large
 > >    data archives may be better suited to running on a data analysis node.
+> {: .solution}
 {: .challenge}
 
 If you experience performance issues with a login node you should report it to the
