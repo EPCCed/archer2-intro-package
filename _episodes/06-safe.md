@@ -1,6 +1,6 @@
 ---
 title: "Using SAFE"
-teaching: 30
+teaching: 15
 exercises: 0
 questions:
 - "How can I manage my ARCHER2 user account?"
