@@ -30,9 +30,8 @@ alt="ARCHER2 architecture diagram" caption="ARCHER2 architecture" %}
 
 ## Compute nodes
 
-There are 5,848 compute nodes in total giving 748,544 compute cores on ARCHER2. There
-are 5,556 standard compute nodes with 256 GiB memory per node and 292 high memory 
-compute nodes with 512 GiB of memory per node. All of the compute nodes are linked
+There are around 1,000 compute nodes in total, giving 128,100 compute cores on the ARCHER2 4-cabinet system all with 256 GiB memory per node.
+All of the compute nodes are linked
 together using the high-performance Cray Slingshot interconnect.
 
 Access to the compute nodes is controlled by the Slurm scheduling system which supports
