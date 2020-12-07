@@ -61,7 +61,7 @@ The public part of the key pair is associated with your account using the SAFE w
 See the ARCHER2 User and Best Practice Guide for information on how to create SSH key pairs
 and associate them with your account:
 
-* [Connecting to ARCHER2](https://docs.archer2.ac.uk/user-guide/connecting.html)
+* [Connecting to ARCHER2](https://docs.archer2.ac.uk/user-guide/connecting/)
 
 ## Data transfer services: scp, rsync, Globus Online
 
@@ -75,7 +75,7 @@ the data to. The three main options are:
 
 More information on data transfer mechanisms can be found in the ARCHER2 User and Best Practice Guide:
 
-* [Data management and transfer](https://docs.archer2.ac.uk/user-guide/data.html)
+* [Data management and transfer](https://docs.archer2.ac.uk/user-guide/data/)
 
 ## Data transfer best practice
 

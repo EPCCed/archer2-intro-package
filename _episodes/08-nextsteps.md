@@ -48,7 +48,7 @@ and this will differ from individual to individual!
 
 > ## Exploring the performance of GROMACS
 >
-> [GROMACS](http://www.gromacs.org) is a world-leading biomolecular modelling package
+> [GROMACS](http://manual.gromacs.org/documentation/) is a world-leading biomolecular modelling package
 > that is heavily used on HPC systems around the world. Choosing the best resources
 > for GROMACS calculations is non-trivial as it depends on may factors, including:
 >
@@ -59,7 +59,7 @@ and this will differ from individual to individual!
 > In this exercise, you should try and decide on a good choice of resources and settings
 > on ARCHER2 for a typical biomolecular system. This will involve:
 >
-> - Downloading the [input file for GROMACS]({{ site.baseurl }}/files/ion-channel.tpr)
+> - Downloading the [input file for GROMACS]({{ site.baseurl }}/files/hEGFR_tetramer_pair.tpr)
 > - Writing a job submission script to run GROMACS on ARCHER2 using the system documentation
 > - Varying the number of nodes (from 1 to 16 nodes is a good starting point) used for the GROMACS job
 >   and benchmarking the performance (in ns/day)
@@ -74,8 +74,6 @@ and this will differ from individual to individual!
 >
 > Please ask for more information on these options from a helper!
 {: .challenge}
-
-**TODO** Add GROMACS files required for this (make sure they work with latest GROMACS)
 
 {% include links.md %}
 

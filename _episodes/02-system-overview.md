@@ -30,9 +30,13 @@ alt="ARCHER2 architecture diagram" caption="ARCHER2 architecture" %}
 
 ## Compute nodes
 
-There are around 1,000 compute nodes in total, giving 128,000 compute cores on the ARCHER2 4-cabinet system all with 256 GiB memory per node.
+There are around 1,000 compute nodes in total, giving 128,000 compute cores on the initial ARCHER2 4-cabinet system all with 256 GiB memory per node.
 All of the compute nodes are linked
 together using the high-performance Cray Slingshot interconnect.
+
+The final 23-cabinet system will have 5,585 compute nodes and 748,856
+compute cores, containing 300 high-memory nodes with 512 GiB memory
+per node.
 
 Access to the compute nodes is controlled by the Slurm scheduling system which supports
 both batch jobs and interactive jobs.
@@ -127,7 +131,7 @@ directory will be at:
 
 > ## Jobs can't see your data?
 > If your jobs are having trouble accessing your data make sure you have placed it on Work
-> rather than Home. Remember, the home file systems are not visible from the compute nodes.
+> rather than Home. Remember, **the home file systems are not visible from the compute nodes**.
 {: .callout}
 
 You can view your work file system use and quota through SAFE in the same way as described 
@@ -138,7 +142,7 @@ to query your project quota on the work file system you could use:
 <!-- TODO update with correct command for ARCHER2 -->
 
 ```
-lfs quota -hg t01 /fs3
+lfs quota -hg t01 /work/t01/t01
 ```
 {: .language-bash}
 ```
@@ -153,7 +157,7 @@ the whole project is using and the `limit` column shows how much quota is availa
 project. You can show your own user's use and quota with:
 
 ```
-lfs quota -hu auser /fs3
+lfs quota -hu auser /work/t01/
 ```
 {: .language-bash}
 ```
@@ -189,10 +193,10 @@ To share data with users in the same project you use the `/work/t01/t01/shared` 
 directory are correctly set to allow sharing in the project:
 
 ```
-auser@login01-nmn:~> mkdir /work/t01/t01/shared/interesting-data
-auser@login01-nmn:~> cp -r modelling-output /work/t01/t01/shared/interesting-data/
-auser@login01-nmn:~> chmod -R g+rX,o-rwx /work/t01/t01/shared/interesting-data
-auser@login01-nmn:~> ls -l /work/t01/t01/shared
+auser@uan01:~> mkdir /work/t01/t01/shared/interesting-data
+auser@uan01:~> cp -r modelling-output /work/t01/t01/shared/interesting-data/
+auser@uan01:~> chmod -R g+rX,o-rwx /work/t01/t01/shared/interesting-data
+auser@uan01:~> ls -l /work/t01/t01/shared
 ```
 {: .language-bash}
 ```
@@ -200,7 +204,7 @@ total 150372
 
 ...snip...
 
-drwxr-s---  2 auser  z01      4096 Jul 20 12:09 interesting-data
+drwxr-s---  2 auser  t01      4096 Jul 20 12:09 interesting-data
 
 ..snip...
 
@@ -212,10 +216,10 @@ To share data with users in other projects, you use the `/work/t01/shared` direc
 directory are correctly set to allow sharing with all other users:
 
 ```
-auser@login01-nmn:~> mkdir /work/t01/shared/more-interesting-data
-auser@login01-nmn:~> cp -r more-modelling-output /work/t01/shared/more-interesting-data/
-auser@login01-nmn:~> chmod -R go+rX /work/t01/shared/more-interesting-data
-auser@login01-nmn:~> ls -l /work/t01/shared
+auser@uan01:~> mkdir /work/t01/shared/more-interesting-data
+auser@uan01:~> cp -r more-modelling-output /work/t01/shared/more-interesting-data/
+auser@uan01:~> chmod -R go+rX /work/t01/shared/more-interesting-data
+auser@uan01:~> ls -l /work/t01/shared
 ```
 {: .language-bash}
 ```
@@ -223,7 +227,7 @@ total 150372
 
 ...snip...
 
-drwxr-sr-x  2 auser  z01      4096 Jul 20 12:09 more-interesting-data
+drwxr-sr-x  2 auser  t01      4096 Jul 20 12:09 more-interesting-data
 
 ..snip...
 
@@ -279,7 +283,7 @@ tools and other useful software. Some examples of the software installed are:
 More information on the software available on ARCHER2 can be found in
 [the ARCHER2 Documentation](https://docs.archer2.ac.uk).
 
-ARCHER2 also supports the use of [Singularity containers](https://docs.archer2.ac.uk/user-guide/containers.html) for single-node and multi-node jobs.
+ARCHER2 also supports the use of [Singularity containers](https://docs.archer2.ac.uk/user-guide/containers/) for single-node and multi-node jobs.
 
 > ## What about your research?
 >

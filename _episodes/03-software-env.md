@@ -39,17 +39,18 @@ All users start with a default set of modules loaded into their environment. The
 You can see what modules you currently have loaded with the `module list` command:
 
 ```
-auser@login01-nmn:~> module list
+auser@uan01:~> module list
 ```
 {: .language-bash}
 ```
 Currently Loaded Modulefiles:
- 1) cpe-cray                          7) cray-dsmml/0.1.2(default)                           
- 2) cce/10.0.3(default)               8) perftools-base/20.09.0(default)                     
- 3) craype/2.7.0(default)             9) xpmem/2.2.35-7.0.1.0_1.3__gd50fabf.shasta(default)  
- 4) craype-x86-rome                  10) cray-mpich/8.0.15(default)                          
- 5) libfabric/1.11.0.0.233(default)  11) cray-libsci/20.08.1.2(default)                      
- 6) craype-network-ofi 
+ 1) cpe-cray                          8) perftools-base/20.09.0(default)                                          
+ 2) cce/10.0.3(default)               9) xpmem/2.2.35-7.0.1.0_1.7__gd50fabf.shasta(default)                       
+ 3) craype/2.7.0(default)            10) cray-mpich/8.0.15(default)                                               
+ 4) craype-x86-rome                  11) cray-libsci/20.08.1.2(default)                                           
+ 5) libfabric/1.11.0.0.233(default)  12) /work/y07/shared/archer2-modules/modulefiles-cse/epcc-setup-env          
+ 6) craype-network-ofi               13) /work/y07/shared/archer2-modules/modulefiles-cse/epcc-setup-env-profile  
+ 7) cray-dsmml/0.1.2(default)        
 ```
 {: .output}
 
@@ -70,53 +71,40 @@ Currently Loaded Modulefiles:
 You can query which software is provided by modules with the `module avail` command:
 
 ```
-auser@login01-nmn:~> module avail
+auser@uan01:~> module avail
 ```
 {: .language-bash}
 ```
------------------------ /opt/cray/pe/perftools/20.05.0/modulefiles ------------------------
-perftools       perftools-lite-events  perftools-lite-hbm    perftools-nwpc     
-perftools-lite  perftools-lite-gpu     perftools-lite-loops  perftools-preload  
+-------------------------------------------------- /work/y07/shared/archer2-modules/modulefiles-cse-pyvenvs --------------------------------------------------
+tensorflow/2.3.1-py38  torch/1.6.0-py38  
 
--------------------------- /opt/cray/pe/craype/2.6.4/modulefiles --------------------------
-craype-hugepages1G  craype-hugepages8M   craype-hugepages128M  craype-network-slingshot10  
-craype-hugepages2G  craype-hugepages16M  craype-hugepages256M  craype-x86-rome             
-craype-hugepages2M  craype-hugepages32M  craype-hugepages512M  
-craype-hugepages4M  craype-hugepages64M  craype-network-none   
+--------------------------------------------------- /work/y07/shared/archer2-modules/modulefiles-cse-utils ---------------------------------------------------
+epcc-job-env  lzip/1.20-gcc10  nco/4.9.6-gcc-10.1.0  tcl/8.6.10-gcc10  tk/8.6.10-gcc10  xios/2.5-gcc10  xthi/1.0-gcc10  
 
------------------------------ /usr/local/Modules/modulefiles ------------------------------
+--------------------------------------------------- /work/y07/shared/archer2-modules/modulefiles-cse-libs ----------------------------------------------------
+gmp/6.1.2-gcc10  gsl/2.5-gcc10  mpich/3.3.2-gcc10  openmpi/4.0.4-gcc10  
+
+--------------------------------------------------- /work/y07/shared/archer2-modules/modulefiles-cse-apps ----------------------------------------------------
+code_saturne/6.0.5-gcc10  elk/6.8.4       lammps/3_Mar_2020  nwchem/7.0.0        openfoam/org/v8.20200901  
+cp2k/7.1                  gromacs/2020.3  namd/2.14-gcc10    openfoam/com/v2006  quantum-espresso/6.6      
+
+--------------------------------------------------------- /opt/cray/pe/perftools/20.09.0/modulefiles ---------------------------------------------------------
+perftools  perftools-lite  perftools-lite-events  perftools-lite-gpu  perftools-lite-hbm  perftools-lite-loops  perftools-nwpc  perftools-preload  
+
+----------------------------------------------------------- /opt/cray/pe/craype/2.7.0/modulefiles ------------------------------------------------------------
+craype-hugepages1G  craype-hugepages4M   craype-hugepages32M   craype-hugepages256M  craype-network-ofi          
+craype-hugepages2G  craype-hugepages8M   craype-hugepages64M   craype-hugepages512M  craype-network-slingshot10  
+craype-hugepages2M  craype-hugepages16M  craype-hugepages128M  craype-network-none   craype-x86-rome             
+
+--------------------------------------------------------------- /usr/local/Modules/modulefiles ---------------------------------------------------------------
 dot  module-git  module-info  modules  null  use.own  
 
--------------------------------- /opt/cray/pe/modulefiles ---------------------------------
-atp/3.5.4(default)                         cray-openshmemx/10.1.0(default)         
-cce/10.0.0(default)                        cray-parallel-netcdf/1.11.1.1(default)  
-cray-ccdb/4.5.4(default)                   cray-pmi-lib/6.0.5(default)             
-cray-cti/2.5.6(default)                    cray-pmi/6.0.5(default)                 
-cray-dsmml/0.1.0(default)                  cray-stat/4.4.5(default)                
-cray-fftw/3.3.8.4(default)                 craype-dl-plugin-py3/20.05.1            
-cray-fftw/3.3.8.5                          craype/2.6.4(default)                   
-cray-ga/5.7.0.3                            craypkg-gen/1.3.9(default)              
-cray-hdf5-parallel/1.10.5.2(default)       gdb4hpc/4.5.6(default)                  
-cray-hdf5/1.10.5.2(default)                iobuf/2.0.9(default)                    
-cray-libsci/20.03.1.4(default)             papi/5.7.0.3(default)                   
-cray-mpich-abi/8.0.10                      perftools-base/20.05.0(default)         
-cray-mpich/8.0.10(default)                 PrgEnv-cray/7.0.0(default)              
-cray-netcdf-hdf5parallel/4.6.3.2(default)  PrgEnv-gnu/7.0.0(default)               
-cray-netcdf/4.6.3.2(default)               valgrind4hpc/2.5.5(default)             
+--------------------------------------------------------------- /opt/cray/pe/cpe-prgenv/7.0.0 ----------------------------------------------------------------
+cpe-aocc  cpe-cray  cpe-gnu  
 
----------------------------------- /opt/cray/modulefiles ----------------------------------
-capsules/0.8.3(default)                                                                 
-chapel/1.20.1(default)                                                                  
-cray-lustre-client/2.12.0.5_cray_166_gf6711cf-7.0.1.0_2.24__gf6711cfb3.shasta(default)  
-cray-shasta-mlnx-firmware/1.0.5(default)                                                
-dvs/2.12_2.2.259-7.0.1.0_6.1__g6ee74127(default)                                        
-libfabric/1.10.0.0.249(default)                                                         
-spark/3.0.0(default)                                                                    
-xpmem/2.2.35-7.0.1.0_3.9__gfa8d091.shasta(default)                                      
-
------------------------------------- /opt/modulefiles -------------------------------------
-cray-python/3.8.2.0(default)  cray-R/3.6.3(default)  gcc/8.1.0  gcc/9.3.0(default)
-
+---------------------------------------------------------------------- /opt/modulefiles ----------------------------------------------------------------------
+aocc/2.1.0.3(default)  cray-R/4.0.2.0(default)  gcc/8.1.0  gcc/9.3.0  gcc/10.1.0(default)  
+...
 ```
 {: .output}
 
@@ -134,7 +122,7 @@ If you want more information on a particular module, you can use the `module hel
 to get more info on the `cray-netcdf` module:
 
 ```
-aturner@login01-nmn:~> module help cray-netcdf
+auser@uan01:~> module help cray-netcdf
 ```
 {: .language-bash}
 ```
@@ -237,7 +225,7 @@ Lets look at our environment before we change anything. As you may recall, to
 see just our loaded modules we use the `module list` command:
 
 ```
-auser@login01-nmn:~> module list
+auser@uan01:~> module list
 ```
 {: .language-bash}
 ```
@@ -254,24 +242,25 @@ Currently Loaded Modulefiles:
 You load modules with the `module load` command. For example, to load the `cray-netcdf` module:
 
 ```
-auser@login01-nmn:~> module load cray-netcdf
+auser@uan01:~> module load cray-netcdf
 ```
 {: .language-bash}
 
-Now, lets list our loaded modules again with `ml`:
+Now, lets list our loaded modules again with `module list`:
 
 ```
-auser@login01-nmn:~> module list
+auser@uan01:~> module list
 ```
 {: .language-bash}
 ```
 Currently Loaded Modulefiles:
- 1) cpe-cray                          7) cray-dsmml/0.1.2(default)                           
- 2) cce/10.0.3(default)               8) perftools-base/20.09.0(default)                     
- 3) craype/2.7.0(default)             9) xpmem/2.2.35-7.0.1.0_1.3__gd50fabf.shasta(default)  
- 4) craype-x86-rome                  10) cray-mpich/8.0.15(default)                          
- 5) libfabric/1.11.0.0.233(default)  11) cray-libsci/20.08.1.2(default)                      
- 6) craype-network-ofi               12) cray-netcdf/4.7.4.0 
+ 1) cpe-cray                          8) perftools-base/20.09.0(default)                                          
+ 2) cce/10.0.3(default)               9) xpmem/2.2.35-7.0.1.0_1.7__gd50fabf.shasta(default)                       
+ 3) craype/2.7.0(default)            10) cray-mpich/8.0.15(default)                                               
+ 4) craype-x86-rome                  11) cray-libsci/20.08.1.2(default)                                           
+ 5) libfabric/1.11.0.0.233(default)  12) /work/y07/shared/archer2-modules/modulefiles-cse/epcc-setup-env          
+ 6) craype-network-ofi               13) /work/y07/shared/archer2-modules/modulefiles-cse/epcc-setup-env-profile  
+ 7) cray-dsmml/0.1.2(default)        14) cray-netcdf/4.7.4.0                   
 ```
 {: .output}
 
@@ -287,15 +276,31 @@ For example, to swap to an older version of GCC, we setup the GNU programming en
 and then swap from the default `gcc/10.1.0` module to `gcc/9.3.0`:
 
 ```
-auser@login01-nmn:~> module restore PrgEnv-gnu
-auser@login01-nmn:~> module swap gcc gcc/9.3.0
-auser@login01-nmn:~> module list
+auser@uan01:~> module restore PrgEnv-gnu
+auser@uan01:~> module swap gcc gcc/9.3.0
+auser@uan01:~> module list
 ```
 {: .language-bash}
-```
+````
+Unloading cray-netcdf/4.7.4.0
+
+Unloading /work/y07/shared/archer2-modules/modulefiles-cse/epcc-setup-env-profile
+  WARNING: Did not unuse /work/y07/shared/archer2-modules/modulefiles-cse-apps
+  WARNING: Did not unuse /work/y07/shared/archer2-modules/modulefiles-cse-libs
+  WARNING: Did not unuse /work/y07/shared/archer2-modules/modulefiles-cse-utils
+  WARNING: Did not unuse /work/y07/shared/archer2-modules/modulefiles-cse-pyvenvs
+
+
+Warning: Unloading the epcc-setup-env module will stop many
+modules being available on the system. If you do this by
+accident, you can recover the situation with the command:
+
+        module load /work/y07/shared/archer2-modules/modulefiles-cse/epcc-setup-env
+
+Unloading /work/y07/shared/archer2-modules/modulefiles-cse/epcc-setup-env
 Unloading cray-libsci/20.08.1.2
 Unloading cray-mpich/8.0.15
-Unloading xpmem/2.2.35-7.0.1.0_1.3__gd50fabf.shasta
+Unloading xpmem/2.2.35-7.0.1.0_1.7__gd50fabf.shasta
 
 Unloading perftools-base/20.09.0
   WARNING: Did not unuse /opt/cray/pe/perftools/20.09.0/modulefiles
@@ -318,18 +323,20 @@ Loading libfabric/1.11.0.0.233
 Loading craype-network-ofi
 Loading cray-dsmml/0.1.2
 Loading perftools-base/20.09.0
-Loading xpmem/2.2.35-7.0.1.0_1.3__gd50fabf.shasta
+Loading xpmem/2.2.35-7.0.1.0_1.7__gd50fabf.shasta
 Loading cray-mpich/8.0.15
 Loading cray-libsci/20.08.1.2
-
+Loading /work/y07/shared/archer2-modules/modulefiles-cse/epcc-setup-env
+ta005dsh@uan01:~> module swap gcc gcc/9.3.0
+ta005dsh@uan01:~> module list
 Currently Loaded Modulefiles:
- 1) cpe-gnu                           7) perftools-base/20.09.0(default)                     
- 2) craype/2.7.0(default)             8) xpmem/2.2.35-7.0.1.0_1.3__gd50fabf.shasta(default)  
- 3) craype-x86-rome                   9) cray-mpich/8.0.15(default)                          
- 4) libfabric/1.11.0.0.233(default)  10) cray-libsci/20.08.1.2(default)                      
- 5) craype-network-ofi               11) gcc/9.3.0                                           
- 6) cray-dsmml/0.1.2(default)         
-```
+ 1) cpe-gnu                           7) perftools-base/20.09.0(default)                                  
+ 2) craype/2.7.0(default)             8) xpmem/2.2.35-7.0.1.0_1.7__gd50fabf.shasta(default)               
+ 3) craype-x86-rome                   9) cray-mpich/8.0.15(default)                                       
+ 4) libfabric/1.11.0.0.233(default)  10) cray-libsci/20.08.1.2(default)                                   
+ 5) craype-network-ofi               11) /work/y07/shared/archer2-modules/modulefiles-cse/epcc-setup-env  
+ 6) cray-dsmml/0.1.2(default)        12) gcc/9.3.0                             
+````
 {: .output}
 
 

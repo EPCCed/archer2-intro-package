@@ -10,9 +10,9 @@ humandate:
 humantime: 
 startdate: 
 enddate: 
-instructor: ["Andy Turner"]
-helper: []
-email: ["a.turner@epcc.ed.ac.uk"]
+instructor: ["David Henty"]
+helper: ["Caoimhín Laoide-Kemp and Julien Sindt"]
+email: ["d.henty@epcc.ed.ac.uk"]
 collaborative_notes: 
 eventbrite: 
 root: .
@@ -26,7 +26,7 @@ This lesson provides an introduction to using ARCHER2 for users who:
 
 The lesson aims to answer the following questions:
   - What hardware is available on ARCHER2?
-    + What does they consist of (login nodes, compute nodes, file systems, backup)?
+    + What does it consist of (login nodes, compute nodes, file systems, backup)?
     + How does this impact me as a user?
   - How can I access ARCHER2 interactively and transfer data?
   - What does the ARCHER2 software environment look like and how do I access software?
@@ -77,10 +77,14 @@ The lesson aims to answer the following questions:
   Modify the block below if there are any special requirements.
 {% endcomment %}
 <p id="requirements">
-  <strong>Requirements:</strong> Participants must bring a laptop with a
-  Mac, Linux, or Windows operating system (not a tablet, Chromebook, etc.) that they have administrative privileges
-  on. They should have a few specific software packages installed (listed
-  <a href="#setup">below</a>). They are also required to abide by the <a href="https://www.archer2.ac.uk/training/code-of-conduct/">ARCHER2 Training Code of Conduct</a>.
+  <strong>Requirements:</strong> Participants must have a working laptop or 
+  desktop computer with a Mac, Linux, or Windows operating system (not a 
+  tablet, Chromebook, etc.) that they have administrative privileges on. They 
+  should have access to a terminal (Max and Linux users should have a terminal 
+  installed by default; Windows users should get either 
+  <a href="https://mobaxterm.mobatek.net/">MobaXterm</a> or 
+  <a href="https://www.putty.org/">PuTTY</a>. They are also required to abide 
+  by the <a href="https://www.archer2.ac.uk/training/code-of-conduct/">ARCHER2 Training Code of Conduct</a>.
 </p>
 
 {% comment %}

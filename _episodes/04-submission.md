@@ -26,26 +26,26 @@ available to users. The main commands you will use with Slurm on ARCHER2 are:
 * `salloc`: Submit interactive jobs to the scheduler
 * `srun`: Used within a batch job script or interactive job session to start a parallel program
 
-Full documentation on Slurm on ARCHER2 cn be found in [the *Running Jobs on ARCHER2* section of the User
-and Best Practice Guide](https://docs.archer2.ac.uk/user-guide/scheduler.html).
+Full documentation on Slurm on ARCHER2 can be found in the [Running Jobs on ARCHER2](https://docs.archer2.ac.uk/user-guide/scheduler/) section of the ARCHER2 documentations.
 
 ## Finding out what resources are available: `sinfo`
 
 The `sinfo` command shows the current state of the compute nodes known to the scheduler:
 
 ```
-auser@login01-nmn:~> sinfo
+auser@uan01:~> sinfo
 ```
 {: .language-bash}
 ```
 PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
-workq*       up   infinite      8   idle nid[000001-000008]
+standard     up 1-00:00:00    231  alloc nid[001001,001005,001010-001015,001018-001020,001022-001028,001034-001044,001048-001049,001051-001060,001062-001067,001071-001072,001075-001091,001093-001108,001110,001112,001115-001124,001139-001143,001150-001153,001155-001158,001161-001162,001164-001169,001200-001202,001246-001249,001256-001261,001319-001325,001327-001333,001348-001349,001367-001368,001463-001467,001469-001474,001540-001545,001547-001551,001646,001648-001651,001665-001668,001710-001718,001720-001721,001724-001728,001748-001750,001756,001818-001824,001826-001831,001920-001931,001945-001949,001951-001954] 
+standard     up 1-00:00:00    669   idle nid[001000,001002-001004,001007-001009,001030-001032,001073,001126-001137,001145-001148,001154,001170,001175-001199,001204-001226,001229-001240,001245,001263-001272,001274-001286,001288-001317,001334-001335,001337-001346,001352-001365,001370-001383,001396-001434,001436-001461,001475-001477,001479-001489,001491-001504,001506-001519,001522-001538,001553-001580,001582-001613,001615-001641,001653-001663,001670-001688,001690-001708,001730-001746,001752-001755,001758-001781,001783-001809,001832,001840-001890,001893-001902,001904-001918,001933-001943,001956-001968,001970-002013,002015-002023] 
 ```
 {: .output}
 
 There is a row for each node state and partition combination. The default output shows the following columns:
 
-* `PARTITION` - The system partition (**TODO** confirm partitions on ARCHER2)
+* `PARTITION` - The system partition
 * `AVAIL` - The status of the partition - `up` in normal operation
 * `TIMELIMIT` - Maximum runtime as `days-hours:minutes:seconds`: on ARCHER2, these are set using *QoS*
   (Quality of Service) rather than on partitions
@@ -71,21 +71,28 @@ If you prefer to see the state of individual nodes, you can use the `sinfo -N -l
 {: .callout}
 
 ```
-auser@login01-nmn:~> sinfo -N -l
+auser@uan01:~> sinfo -N -l
 ```
 {: .language-bash}
 ```
-Fri Jul 10 09:45:54 2020
-NODELIST   NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON              
-nid000001      1    workq*        idle  256   2:64:2 490124        0      1   (null) none                
-nid000002      1    workq*        idle  256   2:64:2 490124        0      1   (null) none                
-nid000003      1    workq*        idle  256   2:64:2 490124        0      1   (null) none                
-nid000004      1    workq*        idle  256   2:64:2 490124        0      1   (null) none                
-nid000005      1    workq*        idle  256   2:64:2 244046        0      1   (null) none                
-nid000006      1    workq*        idle  256   2:64:2 244046        0      1   (null) none                
-nid000007      1    workq*        idle  256   2:64:2 244046        0      1   (null) none                
-nid000008      1    workq*        idle  256   2:64:2 244046        0      1   (null) none  
-
+Thu Oct 29 21:22:08 2020
+NODELIST   NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON               
+nid001000      1  standard        idle 256    2:64:2 256000        0      1   (null) none                 
+nid001001      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                 
+nid001002      1  standard        idle 256    2:64:2 256000        0      1   (null) none                 
+nid001003      1  standard        idle 256    2:64:2 256000        0      1   (null) none                 
+nid001004      1  standard        idle 256    2:64:2 256000        0      1   (null) none                 
+nid001005      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                 
+nid001006      1  standard       down* 256    2:64:2 256000        0      1   (null) Not responding       
+nid001007      1  standard        idle 256    2:64:2 256000        0      1   (null) none                 
+nid001008      1  standard        idle 256    2:64:2 256000        0      1   (null) none                 
+nid001009      1  standard        idle 256    2:64:2 256000        0      1   (null) none                 
+nid001010      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                 
+nid001011      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                 
+nid001012      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                 
+nid001013      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                 
+nid001014      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                 
+nid001015      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                 
 ...lots of output trimmed...
 
 ```
@@ -96,7 +103,7 @@ nid000008      1    workq*        idle  256   2:64:2 244046        0      1   (n
 > command to see the name, CPUs and memory available on the worker nodes (the instructors will give you the ID of
 > the compute node to use):
 > ```
-> [auser@login01-nmn:~> sinfo -n nid000005 -o "%n %c %m"
+> [auser@uan01:~> sinfo -n nid001000 -o "%n %c %m"
 > ```
 > {: .language-bash}
 > This should display the resources available for a standard node. Can you use `sinfo` to find out the range of
@@ -105,7 +112,7 @@ nid000008      1    workq*        idle  256   2:64:2 244046        0      1   (n
 > > The high memory nodes have IDs `nid000001-nid000004`. You can get this by using:
 > >
 > > ```
-> > auser@login01-nmn:~> sinfo -N -l -S "-m" | less
+> > auser@uan01:~> sinfo -N -l -S "-m" | less
 > > ```
 > > {: .language-bash}
 > >
@@ -136,7 +143,13 @@ two nodes.
 #SBATCH --cpus-per-task=1
 #SBATCH --time=0:10:0
 #SBATCH --account=t01
+#SBATCH --partition=standard
+#SBATCH --qos=standard
 
+# This module needs to be loaded in ALL scripts
+module load epcc-job-env
+
+# Now load the "xthi" package
 module load xthi
 
 export OMP_NUM_THREADS=1
@@ -164,7 +177,7 @@ You use the `sbatch` command to submit job submission scripts to the scheduler. 
 above script was saved in a file called `test_job.slurm`, you would submit it with:
 
 ```
-auser@login01-nmn:~> sbatch test_job.slurm
+auser@uan01:~> sbatch test_job.slurm
 ```
 {: .language-bash}
 ```
@@ -194,7 +207,8 @@ Slurm reports back with the job ID for the job you have submitted
 > > #!/bin/bash
 > > #SBATCH --job-name=my_mpi_job
 > > #SBATCH --account=t01
-> >
+> > module load epcc-job-env
+> > ...
 > > echo "Nodes: $SLURM_JOB_NUM_NODES"
 > > echo "Tasks per node: $SLURM_NTASKS_PER_NODE"
 > > module load xthi
@@ -205,7 +219,7 @@ Slurm reports back with the job ID for the job you have submitted
 > > ```
 > > {: .language-bash}
 > > 
-> > (2) Tasks per node: 1
+> > (2) Tasks per node: 256
 > >
 > > (3) Number of nodes: 1
 > >
@@ -213,13 +227,13 @@ Slurm reports back with the job ID for the job you have submitted
 > > the job. For example, if the job ID was "12345", then we could query the time limit with:
 > > 
 > > ```
-> > auser@login01-nmn:~> sacct -o "TimeLimit" -j 86
+> > auser@uan01:~> sacct -o "TimeLimit" -j 12345
 > > ```
 > > {: .language-bash}
 > > ```
 > >  Timelimit 
 > > ---------- 
-> >  UNLIMITED
+> >  00:10:00 
 > > ```
 > > {: .output}
 > >
@@ -233,7 +247,7 @@ You use the `squeue` command to show the current state of the queues on ARCHER2.
 will show all jobs in the queue:
 
 ```
-auser@login01-nmn:~> squeue
+auser@uan01:~> squeue
 ```
 {: .language-bash}
 ```
@@ -320,13 +334,19 @@ per node and 16 OpenMP threads per MPI task (so all 256 cores across both nodes 
 
 ```
 #!/bin/bash
-#SBATCH -job-name=my_hybrid_job
+#SBATCH --job-name=my_hybrid_job
 #SBATCH --nodes=2
 #SBATCH --ntasks-per-node=8
 #SBATCH --cpus-per-task=16
 #SBATCH --time=0:10:0
 #SBATCH --account=t01
+#SBATCH --partition=standard
+#SBATCH --qos=standard
 
+# This module needs to be loaded in ALL scripts
+module load epcc-job-env
+
+# Now load the "xthi" package
 module load xthi
 
 export OMP_NUM_THREADS=16
@@ -380,28 +400,27 @@ For example, to execute `xthi` across all cores on two nodes (1 MPI task per cor
 OpenMP threading) within an interactive job you would issue the following commands:
 
 ```
-auser@login01-nmn:~> srun --nodes=2 --ntasks-per-node=128 --cpus-per-task=1 --time=0:10:0 --account=t01 xthi
+auser@uan01:~> srun --partition=standard --qos=standard --nodes=2 --ntasks-per-node=128 --cpus-per-task=1 --time=0:10:0 --account=t01 xthi
 ```
 {: .language-bash}
 ```
-Hello from rank 242, thread 0, on nid000002. (core affinity = 46,174)
-Hello from rank 249, thread 0, on nid000002. (core affinity = 31,159)
-Hello from rank 225, thread 0, on nid000002. (core affinity = 28,156)
-Hello from rank 231, thread 0, on nid000002. (core affinity = 124,252)
-Hello from rank 233, thread 0, on nid000002. (core affinity = 29,157)
-Hello from rank 234, thread 0, on nid000002. (core affinity = 45,173)
-Hello from rank 240, thread 0, on nid000002. (core affinity = 14,142)
-Hello from rank 246, thread 0, on nid000002. (core affinity = 110,238)
-Hello from rank 248, thread 0, on nid000002. (core affinity = 15,143)
-Hello from rank 251, thread 0, on nid000002. (core affinity = 63,191)
-Hello from rank 252, thread 0, on nid000002. (core affinity = 79,207)
-Hello from rank 223, thread 0, on nid000002. (core affinity = 123,251)
-Hello from rank 71, thread 0, on nid000001. (core affinity = 120,248)
-Hello from rank 227, thread 0, on nid000002. (core affinity = 60,188)
-Hello from rank 243, thread 0, on nid000002. (core affinity = 62,190)
-Hello from rank 250, thread 0, on nid000002. (core affinity = 47,175)
-Hello from rank 53, thread 0, on nid000001. (core affinity = 86,214)
-
+Node    0, hostname nid001030
+Node    1, hostname nid001031
+Node    0, rank    0, thread   0, (affinity = 0,128)
+Node    0, rank    1, thread   0, (affinity = 16,144)
+Node    0, rank    2, thread   0, (affinity = 32,160)
+Node    0, rank    3, thread   0, (affinity = 48,176)
+Node    0, rank    4, thread   0, (affinity = 64,192)
+Node    0, rank    5, thread   0, (affinity = 80,208)
+Node    0, rank    6, thread   0, (affinity = 96,224)
+Node    0, rank    7, thread   0, (affinity = 112,240)
+Node    0, rank    8, thread   0, (affinity = 1,129)
+Node    0, rank    9, thread   0, (affinity = 17,145)
+Node    0, rank   10, thread   0, (affinity = 33,161)
+Node    0, rank   11, thread   0, (affinity = 49,177)
+Node    0, rank   12, thread   0, (affinity = 65,193)
+Node    0, rank   13, thread   0, (affinity = 81,209)
+Node    0, rank   14, thread   0, (affinity = 97,225)
 ...long output trimmed...
 ```
 {: .output}
