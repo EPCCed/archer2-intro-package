@@ -37,9 +37,12 @@ auser@uan01:~> sinfo
 ```
 {: .language-bash}
 ```
-PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
-standard     up 1-00:00:00    231  alloc nid[001001,001005,001010-001015,001018-001020,001022-001028,001034-001044,001048-001049,001051-001060,001062-001067,001071-001072,001075-001091,001093-001108,001110,001112,001115-001124,001139-001143,001150-001153,001155-001158,001161-001162,001164-001169,001200-001202,001246-001249,001256-001261,001319-001325,001327-001333,001348-001349,001367-001368,001463-001467,001469-001474,001540-001545,001547-001551,001646,001648-001651,001665-001668,001710-001718,001720-001721,001724-001728,001748-001750,001756,001818-001824,001826-001831,001920-001931,001945-001949,001951-001954] 
-standard     up 1-00:00:00    669   idle nid[001000,001002-001004,001007-001009,001030-001032,001073,001126-001137,001145-001148,001154,001170,001175-001199,001204-001226,001229-001240,001245,001263-001272,001274-001286,001288-001317,001334-001335,001337-001346,001352-001365,001370-001383,001396-001434,001436-001461,001475-001477,001479-001489,001491-001504,001506-001519,001522-001538,001553-001580,001582-001613,001615-001641,001653-001663,001670-001688,001690-001708,001730-001746,001752-001755,001758-001781,001783-001809,001832,001840-001890,001893-001902,001904-001918,001933-001943,001956-001968,001970-002013,002015-002023] 
+PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST 
+standard     up 1-00:00:00     17 drain* nid[001301,001363,001388,001552,001561-001562,001568,001622,001690,001746,001825,001834,001841,001848,001884,001894-001895] 
+standard     up 1-00:00:00      7  drain nid[001391,001840,001842-001843,001892-001893,001955] 
+standard     up 1-00:00:00    926  alloc nid[001000-001110,001112-001238,001241-001300,001302-001361,001364-001387,001389-001390,001392-001395,001397-001408,001411-001471,001476-001520,001525-001551,001563-001567,001569-001570,001575,001580-001604,001608-001621,001623-001656,001661-001664,001676-001679,001681-001689,001691-001745,001747-001762,001764-001805,001816-001824,001826-001831,001836-001839,001844,001846-001847,001849-001883,001885-001886,001888-001891,001896-001903,001908-001954,001956-001977,001979-001996,001999-002022] 
+standard     up 1-00:00:00     11   resv nid[001111,001396,001409,001672-001675,001832-001833,001835,002023] 
+standard     up 1-00:00:00     63   idle nid[001239-001240,001362,001410,001472-001475,001521-001524,001553-001560,001571-001574,001576-001579,001605-001607,001657-001660,001665-001671,001680,001763,001806-001815,001845,001887,001904-001907,001978,001997-001998] 
 ```
 {: .output}
 
@@ -66,8 +69,9 @@ The nodes can be in many different states, the most common you will see are:
 If you prefer to see the state of individual nodes, you can use the `sinfo -N -l` command.
 
 > ## Lots to look at!
-> Warning! The `sinfo -N -l` command will produce a lot of output as there are over 5000 individual 
-> nodes on ARCHER2!
+> Warning! The `sinfo -N -l` command will produce a lot of output as there are 1024 individual 
+> nodes on the current ARCHER2 system! (It will be even worse on the full system when there will be
+> over 5,500 nodes.) 
 {: .callout}
 
 ```
@@ -75,24 +79,29 @@ auser@uan01:~> sinfo -N -l
 ```
 {: .language-bash}
 ```
-Thu Oct 29 21:22:08 2020
+Fri Aug 27 12:08:55 2021
 NODELIST   NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON               
-nid001000      1  standard        idle 256    2:64:2 256000        0      1   (null) none                 
+nid001000      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                 
 nid001001      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                 
-nid001002      1  standard        idle 256    2:64:2 256000        0      1   (null) none                 
-nid001003      1  standard        idle 256    2:64:2 256000        0      1   (null) none                 
-nid001004      1  standard        idle 256    2:64:2 256000        0      1   (null) none                 
+nid001002      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                 
+nid001003      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                 
+nid001004      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                 
 nid001005      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                 
-nid001006      1  standard       down* 256    2:64:2 256000        0      1   (null) Not responding       
-nid001007      1  standard        idle 256    2:64:2 256000        0      1   (null) none                 
-nid001008      1  standard        idle 256    2:64:2 256000        0      1   (null) none                 
-nid001009      1  standard        idle 256    2:64:2 256000        0      1   (null) none                 
+nid001006      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                 
+nid001007      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                 
+nid001008      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                 
+nid001009      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                 
 nid001010      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                 
 nid001011      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                 
 nid001012      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                 
 nid001013      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                 
 nid001014      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                 
 nid001015      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                 
+nid001016      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                 
+nid001017      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                 
+nid001018      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                 
+nid001019      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                 
+nid001020      1  standard   allocated 256    2:64:2 256000        0      1   (null) none                           
 ...lots of output trimmed...
 
 ```
@@ -106,20 +115,18 @@ nid001015      1  standard   allocated 256    2:64:2 256000        0      1   (n
 > [auser@uan01:~> sinfo -n nid001000 -o "%n %c %m"
 > ```
 > {: .language-bash}
-> This should display the resources available for a standard node. Can you use `sinfo` to find out the range of
-> node IDs for the high memory nodes?
+> This should display the resources available for a standard node. Are they what you expect given what we learnt
+> earlier about the configuration of a compute node?
 > > ## Solution
-> > The high memory nodes have IDs `nid000001-nid000004`. You can get this by using:
-> >
+> > The output should show:
 > > ```
-> > auser@uan01:~> sinfo -N -l -S "-m" | less
+> > HOSTNAMES CPUS MEMORY
+> > nid001000 256 256000
 > > ```
-> > {: .language-bash}
-> >
-> > The `-S "-m"` option tells `sinfo` to print the node list sorted by decreasing memory per node. This
-> > output is then piped into `less` so we can examine the output a page at a time without it scrolling
-> > off the screen.
-> >
+> > You may be surprised that the output shows 256 CPUS per compute node when the earlier description stated
+> > that there were 128 cores per node. This is because each physical core can support two hardware threads
+> > (often referred to as hyperthreads). Most jobs will only make use of one of these threads as using the
+> > other thread can reduce performance.
 > {: .solution}
 {: .challenge}
 
@@ -132,7 +139,7 @@ shell specification and options to the submission command (`sbatch` in this case
 the script that actually runs the commands you want. In the header section, options to `sbatch` should 
 be prepended with `#SBATCH`.
 
-Here is a simple example script that runs the `xthi` program, which shows process and thread placement, across
+Here is a simple example script that runs the `xthi` program (which shows process and thread placement) across
 two nodes.
 
 ```
@@ -142,7 +149,7 @@ two nodes.
 #SBATCH --ntasks-per-node=128
 #SBATCH --cpus-per-task=1
 #SBATCH --time=0:10:0
-#SBATCH --account=t01
+#SBATCH --account=ta001
 #SBATCH --partition=standard
 #SBATCH --qos=standard
 
@@ -156,7 +163,7 @@ export OMP_NUM_THREADS=1
 
 # Load modules, etc.
 # srun to launch the executable
-srun --cpu-bind=cores xthi
+srun --hint=nomultithread --distribution=block:block xthi
 ```
 {: .language-bash}
 
@@ -167,7 +174,7 @@ The options shown here are:
 * `--ntasks-per-node=128` - Set 128 parallel processes per node (usually corresponds to MPI ranks)
 * `--cpus-per-task=1` - Number of cores to allocate per parallel process 
 * `--time=0:10:0` - Set 10 minutes maximum walltime for this job
-* `--account=t01` - Charge the job to the `t01` budget
+* `--account=ta001` - Charge the job to the `t01` budget
 
 We will discuss the `srun` command further below.
 
@@ -187,6 +194,8 @@ Submitted batch job 23996
 
 Slurm reports back with the job ID for the job you have submitted
 
+<!-- This exercise is not ideal - it would be good to replace with something more useful -->
+
 > ## What are the default for `sbatch` options?
 > If you do not specify job options, what are the defaults for Slurm on ARCHER2? Submit jobs to find out
 > what the defaults are for:
@@ -198,15 +207,13 @@ Slurm reports back with the job ID for the job you have submitted
 > 
 > > ## Solution
 > > 
-> > (1) Budget: None - fails if submitted without a budget specified
+> > (1) Budget: defaults to your primary group (for accounts in this course, this will be `ta035`)
 > >
-> > You can get the answers to 2. and 3. this with the following script (once you have realised that you must
-> >specify a budget!):
+> > You can get the answers to 2. and 3. this with the following script):
 > > 
 > > ```
 > > #!/bin/bash
 > > #SBATCH --job-name=my_mpi_job
-> > #SBATCH --account=t01
 > > module load epcc-job-env
 > > ...
 > > echo "Nodes: $SLURM_JOB_NUM_NODES"
@@ -233,11 +240,11 @@ Slurm reports back with the job ID for the job you have submitted
 > > ```
 > >  Timelimit 
 > > ---------- 
-> >  00:10:00 
+> >  01:00:00 
 > > ```
 > > {: .output}
 > >
-> > (4) Walltime: Unlimited
+> > (4) Walltime: 1 hour
 > {: .solution}
 {: .challenge}
 
@@ -251,7 +258,31 @@ auser@uan01:~> squeue
 ```
 {: .language-bash}
 ```
-             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+
+JOBID  PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON) 
+451729  standard 243d9382        a PD       0:00     64 (AssocMaxCpuMinutesPerJobLimit) 
+451750  standard Neg_3.51        b PD       0:00     35 (QOSMaxNodePerUserLimit) 
+451752  standard    PosL1        b PD       0:00     35 (QOSMaxNodePerUserLimit) 
+451754  standard   Pos_R1        b PD       0:00     35 (QOSMaxNodePerUserLimit) 
+451757  standard    PosL2        b PD       0:00     35 (QOSMaxNodePerUserLimit) 
+451759  standard    PosL4        b PD       0:00     35 (QOSMaxNodePerUserLimit) 
+461382  standard       NO        c PD       0:00      2 (AssocMaxCpuMinutesPerJobLimit) 
+461387  standard       ON        c PD       0:00      4 (AssocMaxCpuMinutesPerJobLimit) 
+461392  standard       ON        c PD       0:00      2 (AssocMaxCpuMinutesPerJobLimit) 
+404533  standard  xml_gen        d PD       0:00      1 (DependencyNeverSatisfied) 
+404600  standard  xml_gen        d PD       0:00      1 (DependencyNeverSatisfied) 
+406679  standard  xml_gen        d PD       0:00      1 (DependencyNeverSatisfied) 
+406696  standard  xml_gen        d PD       0:00      1 (DependencyNeverSatisfied) 
+462580_[29-55]  standard   int1.9       e PD       0:00     24 (QOSMaxNodePerUserLimit) 
+464006  standard lammps_t        f PD       0:00      4 (QOSMaxJobsPerUserLimit) 
+464007  standard lammps_t        f PD       0:00      4 (QOSMaxJobsPerUserLimit) 
+463164+1  standard    KrJ50      g PD       0:00     56 (Resources) 
+463164+0  standard    KrJ50      g PD       0:00     21 (Resources) 
+461842  standard u-cg647.        h PD       0:00     82 (Priority) 
+462637+0  standard eO1_medu      i PD       0:00      8 (Resources) 
+462637+1  standard eO1_medu      i PD       0:00      1 (Resources) 
+462086  standard nemo_tes        j PD       0:00      8 (Priority) 
+...
 ```
 {: .output}
 
@@ -259,18 +290,6 @@ auser@uan01:~> squeue
 
 You can use the `scancel` command to cancel jobs that are queued or running. When used on running jobs
 it stops them immediately.
-
-> ## Getting notified
-> Slurm on ARCHER2 can also send e-mails to notify you when your job starts, ends, fails, etc. Can
-> you find out how you would setup your job script to send you an e-mail when your job finishes and
-> when it fails? Test your answer, does it work?
-> > ## Solution
-> > The option `--mail-type=END,FAIL` will send mailings to you when the job ends or fails. You can
-> > also use the event `TIME_LIMIT` to notify you if a job reaches its walltime without finishing and
-> > the events `TIME_LIMIT_50`, `TIME_LIMIT_80` and `TIME_LIMIT_90` to notify you when your job is
-> > 50%, 80% and 90% of the way through the specified walltime.
-> {: .solution}
-{: .challenge}
 
 ### Running parallel applications using `srun`
 
@@ -283,12 +302,12 @@ script usually contains commands to:
   not using OpenMP you should set this to `1`)
 
 After this you will usually launch your parallel program using the `srun` command. At its simplest,
-`srun` only needs 1 argument to specify the correct binding of processes to cores (it will use the
+`srun` only needs 2 arguments to specify the correct binding of processes to cores (it will use the
 values supplied to `sbatch` to work out how many parallel processes to launch). In the example above,
 our `srun` command simply looks like:
 
 ```
-srun --cpu-bind=cores xthi
+srun --hint=nomultithread --distribution=block:block xthi
 ```
 {: .language-bash}
 
@@ -322,15 +341,14 @@ placed on each compute node and can use the `--cpus-per-task` option to set the 
 between parallel tasks to the right value to accommodate the OpenMP threads - the value
 for `--cpus-per-task` should usually be the same as that for `OMP_NUM_THREADS`. To ensure
 you get the correct thread pinning, you also need to specify an additional OpenMP environment
-variable and a couple of additional options to `srun`. Specifically:
+variable. Specifically:
 
    - Set the `OMP_PLACES` environment variable to `cores` with `export OMP_PLACES=cores` in 
-     you job submission script
-   - Add the `--hint=nomultithread` option to `srun`
-   - Add the `--distribution=block:block` option to `srun`
+     your job submission script
 
 As an example, consider the job script below that runs across 2 nodes with 8 MPI tasks
-per node and 16 OpenMP threads per MPI task (so all 256 cores across both nodes are used).
+per node and 16 OpenMP threads per MPI task (so all 256 cores across both nodes are used,
+128 cores per node).
 
 ```
 #!/bin/bash
@@ -360,9 +378,9 @@ srun --hint=nomultithread --distribution=block:block xthi
 
 Each ARCHER2 compute node is made up of 8 NUMA (*Non Uniform Memory Access*) regions (4 per socket) 
 with 16 cores in each region. Programs where the threads of a task span multiple NUMA regions
-are likely to be *less* efficient so we recommend using thread counts that fit well into the
-ARCHER2 compute node layout. Effectively, this means one of the following options for nodes
-where all cores are used:
+are likely to be *much less* efficient so we recommend using thread counts that fit well into the
+ARCHER2 compute node layout. Effectively, this means one of the following options for hybrid jobs
+on nodes where all cores are used:
 
 * 8 MPI tasks per node and 16 OpenMP threads per task: equivalent to 1 MPI task per NUMA region
 * 16 MPI tasks per node and 8 OpenMP threads per task: equivalent to 2 MPI tasks per NUMA region
@@ -400,7 +418,7 @@ For example, to execute `xthi` across all cores on two nodes (1 MPI task per cor
 OpenMP threading) within an interactive job you would issue the following commands:
 
 ```
-auser@uan01:~> srun --partition=standard --qos=standard --nodes=2 --ntasks-per-node=128 --cpus-per-task=1 --time=0:10:0 --account=t01 xthi
+auser@uan01:~> srun --partition=standard --qos=standard --nodes=2 --ntasks-per-node=128 --cpus-per-task=1 --time=0:10:0 --account=ta001 xthi
 ```
 {: .language-bash}
 ```

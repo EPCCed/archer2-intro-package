@@ -1,7 +1,7 @@
 ---
 layout: lesson
 carpentry: "swc"
-venue: 
+venue: Online
 address: 
 country: "UK"
 language: "English"
@@ -10,11 +10,10 @@ humandate:
 humantime: 
 startdate: 
 enddate: 
-instructor: ["David Henty"]
-helper: ["Caoimhín Laoide-Kemp and Julien Sindt"]
-email: ["d.henty@epcc.ed.ac.uk"]
+instructor: ["Jane Doe"]
+helper: ["John Doe","John Smith"]
+email: ["support@archer2.ac.uk"]
 collaborative_notes: 
-eventbrite: 
 root: .
 ---
 
@@ -80,11 +79,11 @@ The lesson aims to answer the following questions:
   <strong>Requirements:</strong> Participants must have a working laptop or 
   desktop computer with a Mac, Linux, or Windows operating system (not a 
   tablet, Chromebook, etc.) that they have administrative privileges on. They 
-  should have access to a terminal (Max and Linux users should have a terminal 
+  should have access to a terminal (Mac and Linux users should have a terminal 
   installed by default; Windows users should get either 
   <a href="https://mobaxterm.mobatek.net/">MobaXterm</a> or 
   <a href="https://www.putty.org/">PuTTY</a>. They are also required to abide 
-  by the <a href="https://www.archer2.ac.uk/training/code-of-conduct/">ARCHER2 Training Code of Conduct</a>.
+  by the <a href="https://www.archer2.ac.uk/about/policies/code-of-conduct.html">ARCHER2 Code of Conduct</a>.
 </p>
 
 {% comment %}

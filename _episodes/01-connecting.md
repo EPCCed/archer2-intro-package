@@ -49,7 +49,7 @@ long, but comparatively simple passwords. For example, passwords in the style of
 > > 1. **No** This would not be accepted or a good choice as it is too short and is made up of obvious words
 > > 2. **Yes** This would be a good choice as it is long enough and easy to remember
 > > 3. **Yes** This would be accepted but may be difficult to remember and type (though you could use a password manager to store it)
-> > 4. **No** While this meets the criteria, it is a well known example from a popular web comic and so would not be accepted
+> > 4. **No** While this meets the criteria, it is a well known example from a [popular web comic](https://xkcd.com/936/) and so would not be accepted
 > >
 > {: .solution}
 {: .challenge}
@@ -63,7 +63,21 @@ and associate them with your account:
 
 * [Connecting to ARCHER2](https://docs.archer2.ac.uk/user-guide/connecting/)
 
-## Data transfer services: scp, rsync, Globus Online
+> ## Log in to ARCHER2
+> Once you have managed to setup your SSH key pair and have retrieved your initial password from
+> SAFE, try to log into ARCHER2 for the first time using the command:
+> 
+> ```
+> ssh -i /path/to/sshkey username@login.archer2.ac.uk
+> ```
+>
+> The first time you login, you will be prompted to change your password. You will need
+> to enter your initial password from SAFE again (this will be referred to as your LDAP
+> password). Once you have entered this, you will be prompted to choose a new password
+> which you must enter twice.
+{: .challenge}
+
+## Data transfer services: scp, rsync
 
 ARCHER2 supports a number of different data transfer mechanisms. The one you choose depends
 on the amount and structure of the data you want to transfer and where you want to transfer
@@ -71,7 +85,6 @@ the data to. The three main options are:
 
 * `scp`: The standard way to transfer small to medium amounts of data off ARCHER2 to any other location
 * `rsync`: Used if you need to keep small to medium datasets synchronised between two different locations
-* *Globus Online*: Used to transfer large amounts of data to other sites which are Globus Online enabled
 
 More information on data transfer mechanisms can be found in the ARCHER2 User and Best Practice Guide:
 

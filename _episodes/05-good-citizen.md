@@ -98,13 +98,22 @@ the full calculation.
 >
 > Before submitting a very large or very long job submit a short truncated test to ensure that
 > the job starts as expected.
+> 
+> You can access the "short" QoS for testing by adding the following settings to your job 
+> submission script:
+>
+> ```
+> #SBATCH --qos=short
+> #SBATCH --reservation=shortqos
+> ```
+>
+> The short QoS allows you to use a maximum of 8 nodes for a maximum of 20 minutes. This should
+> be large enough to test that your job submission script is functioning as expected.
 {: .callout}
 
 ## Have a backup plan
 
-Although the ARCHER2 /home file systems are backed up, the /work file systems are not,
-and /home is only backed up for disaster recovery purposes (*i.e.* for restoring the
-whole file system if lost rather than an individual file or directory you have deleted by mistake).
+Although the ARCHER2 /home file systems are backed up, the /work file systems are not.
 Your data on ARCHER2 is primarily your responsibility and you should ensure you have secure copies of data
 that are critical to your work.
 

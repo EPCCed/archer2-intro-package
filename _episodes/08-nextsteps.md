@@ -1,7 +1,7 @@
 ---
-title: "Bootstrapping your use of ARCHER2"
-teaching: 15
-exercises: 45
+title: "(Optional extra) Bootstrapping your use of ARCHER2"
+teaching: 10
+exercises: 50
 questions:
 - "How can I get started with using ARCHER?"
 objectives:
@@ -15,9 +15,9 @@ what its potential benefits are you. You may also have ideas around where the
 barriers and difficulties may lie and have further questions on how you can 
 start using and/or trying ARCHER2 for your work.
 
-This session is designed to give you the opportunity to explore these questions and
-issues. The instructors and helpers on the course will be on hand to answer your
-questions and discuss next steps with you.
+This optional session is designed to give you the opportunity to explore these questions and
+issues. You can attempt this session in your own time and if you have any questions
+you can contact the instructors via the email on the course index page.
 
 > ## Potential discussions
 >
@@ -33,9 +33,7 @@ questions and discuss next steps with you.
 
 There are a number of different options for practical work during this session. The
 challenges below include: exploring your own work; and an extended example using a parallel
-HPC application. If you have something else you want to use the session for (e.g. to
-discuss things with the instructors/helpers as described above) then please feel free
-to do this. The idea of the session is to help you bootstrap your use of ARCHER2
+HPC application. The idea of the session is to help you bootstrap your use of ARCHER2
 and this will differ from individual to individual!
 
 > ## Exploring your work using ARCHER2

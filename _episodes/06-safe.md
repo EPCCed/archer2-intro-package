@@ -30,12 +30,12 @@ More information on using SAFE can be found in
 ## Account management
 
 You will have at least two accounts associated with your use of ARCHER2: an account on the
-SAFE web tool and ARCHER2 login (sometimes called *machine*) accounts.
+SAFE web tool and ARCHER2 login (sometimes called *machine*) account(s).
 
 > ## Multiple login accounts
 > You can have multiple ARCHER2 login accounts associated with a single SAFE account. Many
 > users will also have access to the EPSRC Tier-2 HPC resources and login accounts for those
-> systems will often also be linked to our SAFE account. So you can actually have multiple
+> systems will often also be linked to your SAFE account. So you can actually have multiple
 > login accounts on multiple services associated with a single SAFE account!
 {: .callout}
 
@@ -46,7 +46,7 @@ options with managing your different accounts.
 
 Your SAFE account is used to allow you to manage your login accounts and resources, set
 contact details and preferences, record research outputs associated with your use of the
-service and report on your historical use of the service. We cover these topics in more
+service and get information on your historical use of the service. We cover these topics in more
 detail below but first we will look at how to use your institutional single sign on (SSO)
 credentials to sign into SAFE and how to update your e-mail notification preferences.
 
@@ -59,14 +59,29 @@ be linked to your SAFE account. You will now be able to use the *Login with inst
 credentials* button on the SAFE login page to login to the SAFE using your institutional SSO
 ID.
 
+Note: this institutional SSO requires that you local institution have set up their 
+system to allow accounts to be linked in this way. It is our experience that all UK-based
+institutions support this functionality but that support for worldwide institutions is
+more patchy.
+
 **Changing your e-mail notification preferences**. There are a number of different mailing
 lists associated with the ARCHER2 service and you can subscribe to any combination of these.
 You can change your preferences in SAFE by use the *Your details - Update email settings*
 menu option. You can then select the mailing lists you wish to subscribe to.
 
+We recommend that you sign up for the *Major Announcements*, *Service News* and
+*System Status Notifications* to get the best use out of ARCHER2:
+
+- Major Announcemnts: low volume, used for high priority, important announcements such as
+  major system upgrades, major issues on the service, etc.
+- Service News: weekly email with information on changes to the service, upcoming events
+  and training courses and other useful information for users.
+- System Status Notifications: information on upcoming maintenance downtime, notfications
+  of when the serivce is available after downtime, etc.
+
 ### Your ARCHER2 login account(s)
 
-There can be multiple login accounts associated with a single SAFE account. Each of these
+As mentioned above, there can be multiple login accounts associated with a single SAFE account. Each of these
 accounts will be listed in the *Login accounts* menu. Selecting a particular login account
 in the menu will give you access to a page with more options for managing those accounts.
 We will not cover all options here, but briefly mention a few key options.
@@ -96,7 +111,8 @@ as your initial password.
 and an key pair SSH protected by a strong passphrase. Once you have generated your 
 SSH key pair you use SAFE to associate the public part of the key pair with your account.
 Use the *Add credential* button and then select the *SSH key* option to associate the
-public part of the key pair with your account.
+public part of the key pair with your account. You can register multiple SSH key pairs
+against an account (for example, to allow you to log in from different locations).
 
 **Requesting access to licensed software**. If you wish to access particular licensed
 software on ARCHER2 you can request access by using the *Request Access to Package*
@@ -110,7 +126,7 @@ contact) and then enable access.
 In order to make the case to UK Government for continued support of supercomputing and
 HPC we need to collect research outputs from all the projects. The SAFE provides a 
 mechanism for uploading DOI's and automatically gathering the output details based on
-the DOI's provide. You can also get reports out of SAFE to assist with submission to,
+the DOI's provided. You can also get reports out of SAFE to assist with submission to,
 for example, ResearchFish and for project reporting. You add DOI's to your choice of 
 your projects in SAFE by using the *Your details - Publications* menu item.
 
