@@ -22,7 +22,7 @@ to users are:
 * Compute nodes
 * Data analysis (pre-/post- processing) nodes
 
-All of the node types have the same processors: AMD EPYC Zen2 7742, 2.25GHz, 64-cores. All nodes
+All of the node types have the same processors: AMD EPYC<sup>TM</sup> 7742, 2.25GHz, 64-cores. All nodes
 are dual socket nodes so there are 128 cores per node.
 
 {% include figure.html url="" max-width="80%" file="/fig/archer2_architecture.png" 
@@ -30,39 +30,36 @@ alt="ARCHER2 architecture diagram" caption="ARCHER2 architecture" %}
 
 ## Compute nodes
 
-There are 1,024 compute nodes in total, giving 128,000 compute cores on the initial ARCHER2 4-cabinet system all with 256 GiB memory per node.
-All of the compute nodes are linked
-together using the high-performance Cray Slingshot interconnect.
-
-The final 23-cabinet system will have 5,585 compute nodes and 748,856
-compute cores, containing 292 high-memory nodes with 512 GiB memory
-per node.
+There are 5,860 compute nodes in total, giving 750,080 compute cores on the full ARCHER2 system.
+Most of these (5,276 nodes) have 256 GiB memory per node, a smaller number (584 nodes) have 
+512 GiB memory per node. All of the compute nodes are linked together using the high-performance
+HPE Slingshot interconnect.
 
 Access to the compute nodes is controlled by the Slurm scheduling system which supports
 both batch jobs and interactive jobs.
 
-Compute node summary (with comparison to ARCHER):
+Compute node summary:
 
-| | ARCHER2 | ARCHER |
-|-|---------|--------|
-| Processors | 2x AMD EPYC Zen2 (Rome) 7742, 2.25 GHz, 64-core | 2x Intel E5-2697 v2, 2.7 GHz, 12-core | 
-| Cores per node | 128 | 24 |
-| NUMA | 8 NUMA regions per node, 16 cores per NUMA region | 2 NUMA regions per node, 12 cores per NUMA region |
-| Memory Capacity | 256/512 GB DDR 3200, 8 memory channels | 64/128 GB DDR 1666, 4 memory channels |
-| Memory Bandwidth | >380 GB/s per node | >119 GB/s per node |
-| Interconnect Bandwidth | 25 GB/s per node bi-directional | 15 GB/s per node bi-directional |
+| | ARCHER2 |
+|-|---------|
+| Processors | 2x AMD EPYC Zen2 (Rome) 7742, 2.25 GHz, 64-core |
+| Cores per node | 128 |
+| NUMA | 8 NUMA regions per node, 16 cores per NUMA region |
+| Memory Capacity | 256/512 GB DDR 3200, 8 memory channels |
+| Memory Bandwidth | >380 GB/s per node |
+| Interconnect Bandwidth | 25 GB/s per node bi-directional |
 
 ## Storage
 
 There are three different storage systems available on the current ARCHER2 service:
 
 * Home file systems
-* Work file system
+* Work file systems
 * RDF as a Service (RDFaaS)
 
 ### Home
 
-The home file systems are available on the login nodes only and are designed for the storage
+The home file systems are available on the login and data analysis nodes and are designed for the storage
 of critical source code and data for ARCHER2 users. They are backed-up regularly offsite for
 disaster recovery purposes and support recovery of data that has been deleted by accident. There is a
 total of 1 PB usable space available on the home file systems.
@@ -122,11 +119,11 @@ will be completely up to date as they are controlled by SAFE.)
 
 ### Work
 
-The work file systems, which are available on the login and compute nodes, are
+The work file systems, which are available on the login, data analysis and compute nodes, are
 designed for high performance parallel access and are the primary location that jobs running on
 the compute nodes will read data from and write data to. They are based on the Lustre parallel
 file system technology. The work file systems are not backed up in any way. There is a total of 
-14.5 PB usable space available on the work file systems.
+10.8 PB usable space available on the work file systems.
 
 All users have their own directory on the work file systems at:
 
@@ -142,8 +139,9 @@ directory will be at:
 ```
 
 > ## Jobs can't see your data?
-> If your jobs are having trouble accessing your data make sure you have placed it on Work
-> rather than Home. Remember, **the Home file systems are not visible from the compute nodes**.
+> If your jobs are having trouble accessing your data make sure you have placed it on the work
+> file systems rather than the home file systems. Remember, **the home file systems are not
+> visible from the compute nodes**.
 {: .callout}
 
 You can view your work file system use and quota through SAFE in the same way as described 
@@ -152,19 +150,23 @@ the quotas and use directly on ARCHER2 itself using the `lfs quota` command. For
 to query your project quota on the work file system you could use:
 
 ```
-lfs quota -hg t01 /work/t01
+cd /work/t01/t01/auser
+lfs quota -hp $(id -g) .
 ```
 {: .language-bash}
 ```
-Disk quotas for group t01 (gid 1001):
-     Filesystem    used   quota   limit   grace   files   quota   limit   grace
-           /fs3  17.24T      0k  21.95T       - 6275076       0 10000000       -
+Disk quotas for prj 1009 (pid 1009):
+  Filesystem    used   quota   limit   grace   files   quota   limit   grace
+           .  2.905G      0k      0k       -   25300       0       0       -
+pid 1009 is using default block quota setting
+pid 1009 is using default file quota setting
 ```
 {: .output}
 
-(Remember to replace `t01` with your project code.) The `used` column shows how much space
-the whole project is using and the `limit` column shows how much quota is available for the
-project. You can show your own user's use and quota with:
+(Remember to replace `t01` with your project code and `auser` with your username.) The
+`used` column shows how much space the whole project is using and the `limit` column
+shows how much quota is available for the project. You can show your own user's use
+and quota with:
 
 ```
 lfs quota -hu auser /work/t01
@@ -256,18 +258,18 @@ The largest differences from ARCHER are:
    - Lack of Intel compilers and MKL libraries
    - Lack of Arm Forge: DDT debugger and MAP profiler
 
-On top of the HPE Cray-provided software, the EPCC ARCHER2 CSE service have installed a wide range 
+On top of the HPE-provided software, the EPCC ARCHER2 CSE service have installed a wide range 
 of modelling and simulation software, additional scientific and numeric libraries, data analysis
 tools and other useful software. Some examples of the software installed are:
 
 | Research area | Software |
 |-|-|
-| Materials and molecular modelling | CASTEP, ChemShell, CP2K, Elk, LAMMPS, NWChem, ONETEP, Quantum Espresso, VASP |
-| Engineering | Code Saturne, FEniCS, OpenFOAM |
+| Materials and molecular modelling | CASTEP, CP2K, Elk, LAMMPS, NWChem, ONETEP, Quantum Espresso, VASP |
+| Engineering | Code Saturne, OpenFOAM |
 | Biomolecular modelling | GROMACS, NAMD |
-| Earth system modelling | MITgcm, Met Office UM, Met Office LFRic, NEMO |
+| Earth system modelling | MITgcm, Met Office UM, NEMO |
 | Scientific libraries | ARPACK, Boost, Eigen, ELPA, GSL, HYPRE, METIS, MUMPS, ParaFEM, ParMETIS, PETSc, Scotch, SLEPC, SUNDIALS, Zoltan |
-| Software tools | CDO, CGNS, NCL, NCO, Paraview, PLUMED, PyTorch, Tensorflow, VMD, VTST |
+| Software tools | CDO, CGNS, NCL, NCO, Paraview, PLUMED, PyTorch, Tensorflow, VMD |
 
 > ## Licensed software
 > For licensed software installed on ARCHER2, users are expected to bring their own licences to
@@ -279,15 +281,6 @@ More information on the software available on ARCHER2 can be found in
 [the ARCHER2 Documentation](https://docs.archer2.ac.uk).
 
 ARCHER2 also supports the use of [Singularity containers](https://docs.archer2.ac.uk/user-guide/containers/) for single-node and multi-node jobs.
-
-> ## What about your research?
->
-> Speak to your neighbour about your planned use of ARCHER2. Given what you now know about the system,
-> what do you think the biggest opportunities are for your research in using ARCHER2? What do you think
-> the largest challenges are going to be for you?
-> 
-> Write a few sentences in the course Etherpad describing the opportunities and challenges you discussed.
-{: .challenge}
 
 {% include links.md %}
 

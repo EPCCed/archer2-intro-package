@@ -72,7 +72,7 @@ we detect evidence of account sharing of this form we will require you to reset 
 
 Accessing another ARCHER2 user account from your account is also not allowed (as this would
 allow you to potentially capture the credentials for the other account). If we detect this
-behaviour we will require both people involved to reset their access credentials.
+behaviour, we will require both people involved to reset their access credentials.
 
 ## Test before scaling
 
@@ -87,10 +87,8 @@ idle compute nodes).
 
 Also, if ARCHER2 is very busy you may wait in the queue for your job to fail within 10 seconds
 of starting due to a trivial typo in the job script. This is extremely frustrating! You can 
-use the ARCHER2 test queues to run short correctness tests on your job scripts before submitting
+use the ARCHER2 short QoS to run short correctness tests on your job scripts before submitting
 the full calculation.
-
-<!-- TODO: Add in syntax for ARCHER2 test and development queues -->
 
 > ## Test job submission scripts that use large amounts of resource
 > Before submitting a large run of jobs, submit one as a test first to make sure everything works
@@ -104,16 +102,15 @@ the full calculation.
 >
 > ```
 > #SBATCH --qos=short
-> #SBATCH --reservation=shortqos
 > ```
 >
-> The short QoS allows you to use a maximum of 8 nodes for a maximum of 20 minutes. This should
+> The short QoS allows you to use a maximum of 32 nodes for a maximum of 20 minutes. This should
 > be large enough to test that your job submission script is functioning as expected.
 {: .callout}
 
 ## Have a backup plan
 
-Although the ARCHER2 /home file systems are backed up, the /work file systems are not.
+Although the ARCHER2 home file systems are backed up, the work file systems are not.
 Your data on ARCHER2 is primarily your responsibility and you should ensure you have secure copies of data
 that are critical to your work.
 
@@ -150,7 +147,7 @@ but the advice below applies in either case). Data transfer speed may be limited
 different factors so the best data transfer mechanism to use depends on the type of data being
 transferred and where the data is going. Some of the key issues to be aware of are:
 
-- **Disk speed** - The ARCHER2 /work file systems are highly parallel, consisting of a very
+- **Disk speed** - The ARCHER2 work file systems are highly parallel, consisting of a very
   large number of high performance disk drives. This allows them to support a very high data
   bandwidth. Unless the remote system has a similar parallel file system you may find your
   transfer speed limited by disk performance at that end.
@@ -172,11 +169,11 @@ transferred and where the data is going. Some of the key issues to be aware of a
   data transfers. If you are trying to transfer data to or from a host on a general purpose
   network you may find the firewall for that network will limit the transfer rate you can achieve.
 
-As mentioned above and earlier in this lesson, if you have related data that consists of a large number of small files it
-is strongly recommended to pack the files into a larger *archive* file for long term storage and
-transfer. A single large file makes more efficient use of the file system and is easier to move,
-copy and transfer because significantly fewer meta-data operations are required. Archive files can
-be created using tools like `tar` and `zip`.
+As mentioned above and earlier in this lesson, if you have related data that consists of a large
+number of small files it is strongly recommended to pack the files into a larger *archive* file
+for long term storage and transfer. A single large file makes more efficient use of the file
+system and is easier to move, copy and transfer because significantly fewer meta-data operations
+are required. Archive files can be created using tools like `tar` and `zip`.
 
 > ## Consider the best way to transfer data
 > If you are transferring large amounts of data you will need to think about what may affect your transfer
@@ -184,7 +181,7 @@ be created using tools like `tar` and `zip`.
 > take to transfer your data.
 >
 > If you have many files, it is best to combine them into an archive file before you transfer them using a
-> tool such as `tar`.
+> tool such as `tar` as we saw in an earlier episode of this course.
 {: .callout}
 
 

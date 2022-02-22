@@ -72,12 +72,12 @@ menu option. You can then select the mailing lists you wish to subscribe to.
 We recommend that you sign up for the *Major Announcements*, *Service News* and
 *System Status Notifications* to get the best use out of ARCHER2:
 
-- Major Announcemnts: low volume, used for high priority, important announcements such as
+- Major Announcements: low volume, used for high priority, important announcements such as
   major system upgrades, major issues on the service, etc.
 - Service News: weekly email with information on changes to the service, upcoming events
   and training courses and other useful information for users.
-- System Status Notifications: information on upcoming maintenance downtime, notfications
-  of when the serivce is available after downtime, etc.
+- System Status Notifications: information on upcoming maintenance downtime, notifications
+  of when the service is available after downtime, etc.
 
 ### Your ARCHER2 login account(s)
 
