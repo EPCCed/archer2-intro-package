@@ -2,6 +2,8 @@
 title: Setup
 ---
 
+This setup takes you through getting ready for the course by ensuring you have an SSH client installed and registering for an ARCHER2 account (you can also use an existing ARCHER2 account if you are already a user).
+
 Please try to complete the following setup tasks ahead of the lesson. 
 
 ## SSH client
@@ -52,7 +54,7 @@ you request the account
 
 1. [Login to SAFE](https://safe.epcc.ed.ac.uk)
 2. Go to the Menu "Login accounts" and select "Request login account"
-3. Choose the `ta001` project “Choose Project for Machine Account” box and click "Next"
+3. Choose the `ta056` project “Choose Project for Machine Account” box and click "Next"
 4.  Select the *ARCHER2* machine in the list of available machines
 5.  Click *Next*
 6.  Enter a username for the account and an SSH public
@@ -65,12 +67,16 @@ you request the account
 7.  Click *Request*
 
 Now you have to wait for the course organiser to accept your request to register. When this has happened, your account will be created on ARCHER2.
+
 Once this has been done, you should be sent an email. _If you have not received an email but believe that your account should have been activated, check your account status in SAFE which will also show when the account has been activated._ You can then pick up your one shot initial password for ARCHER2 from your SAFE account.
 
 ### Log into ARCHER2
 
 You should now be able to log into ARCHER2 by following the [login instructions in the ARCHER2 documentation](https://docs.archer2.ac.uk/user-guide/connecting/#ssh-clients).
 
+## Using an existing ARCHER2 account
+
+If you wish to use an existing ARCHER2 account for the course, that is perfectly fine. All of the exercises should work equally well from any user account on the ARCHER2 service. The only difference is that you should use your own valid budget rather than the course budget.
 
 
 {% include links.md %}
