@@ -268,7 +268,7 @@ tools and other useful software. Some examples of the software installed are:
 | Engineering | Code Saturne, OpenFOAM |
 | Biomolecular modelling | GROMACS, NAMD |
 | Earth system modelling | MITgcm, Met Office UM, NEMO |
-| Scientific libraries | ARPACK, Boost, Eigen, ELPA, GSL, HYPRE, METIS, MUMPS, ParaFEM, ParMETIS, PETSc, Scotch, SLEPC, SUNDIALS, Zoltan |
+| Scientific libraries | ARPACK, Boost, Eigen, GSL, HYPRE, METIS, MUMPS, ParaFEM, ParMETIS, PETSc, Scotch, SLEPC, SUNDIALS, Zoltan |
 | Software tools | CDO, CGNS, NCL, NCO, Paraview, PLUMED, PyTorch, Tensorflow, VMD |
 
 > ## Licensed software
