@@ -155,7 +155,7 @@ two nodes.
 #SBATCH --ntasks-per-node=128
 #SBATCH --cpus-per-task=1
 #SBATCH --time=0:10:0
-#SBATCH --account=ta056
+#SBATCH --account=ta082
 #SBATCH --partition=standard
 #SBATCH --qos=short
 
@@ -176,7 +176,7 @@ The options shown here are:
 * `--ntasks-per-node=128` - Set 128 parallel processes per node (usually corresponds to MPI ranks)
 * `--cpus-per-task=1` - Number of cores to allocate per parallel process 
 * `--time=0:10:0` - Set 10 minutes maximum walltime for this job
-* `--account=ta056` - Charge the job to the `ta056` budget
+* `--account=ta082` - Charge the job to the `ta082` budget
 * `--partition=standard` - Use nodes from the standard partition on ARCHER2 (the standard partition
   includes all compute nodes).
 * `--qos=short` - Use the `short` Quality of Service (QoS). Different QoS define different limits
@@ -774,7 +774,7 @@ per node and 16 OpenMP threads per MPI process (so all 128 physical cores on bot
 #SBATCH --ntasks-per-node=8
 #SBATCH --cpus-per-task=16
 #SBATCH --time=0:10:0
-#SBATCH --account=ta056
+#SBATCH --account=ta082
 #SBATCH --partition=standard
 #SBATCH --qos=short
 
@@ -1343,7 +1343,7 @@ OpenMP threading) within an interactive job you would issue the following comman
 ```
 auser@ln01:~> export OMP_NUM_THREADS=1
 auser@ln01:~> module load xthi
-auser@ln01:~> srun --partition=standard --qos=short --nodes=2 --ntasks-per-node=128 --cpus-per-task=1 --time=0:10:0 --account=ta056 xthi
+auser@ln01:~> srun --partition=standard --qos=short --nodes=2 --ntasks-per-node=128 --cpus-per-task=1 --time=0:10:0 --account=ta082 xthi
 ```
 {: .language-bash}
 ```
