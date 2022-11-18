@@ -54,7 +54,7 @@ you request the account
 
 1. [Login to SAFE](https://safe.epcc.ed.ac.uk)
 2. Go to the Menu "Login accounts" and select "Request login account"
-3. Choose the `ta056` project “Choose Project for Machine Account” box and click "Next"
+3. Choose the `ta082` project “Choose Project for Machine Account” box and click "Next"
 4.  Select the *ARCHER2* machine in the list of available machines
 5.  Click *Next*
 6.  Enter a username for the account and an SSH public
