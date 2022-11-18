@@ -322,7 +322,7 @@ Currently Loaded Modules:
 {: .output}
 
 You can see that the default `gromacs` module (`gromacs/2021.3`) has been loaded (loading this
-module has also swapped some other modules to math the environment that was used to
+module has also swapped some other modules to match the environment that was used to
 compile GROMACS, it has swapped the Cray compilers for the Gnu compilers and updated the
 versions of some other modules).
 
