@@ -255,8 +255,7 @@ contains:
 
 The largest differences from ARCHER are:
    - Addition of optimised Python 3 and R environments
-   - Lack of Intel compilers and MKL libraries
-   - Lack of Arm Forge: DDT debugger and MAP profiler
+   - Lack of Intel compilers
 
 On top of the HPE-provided software, the EPCC ARCHER2 CSE service have installed a wide range 
 of modelling and simulation software, additional scientific and numeric libraries, data analysis
