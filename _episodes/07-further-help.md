@@ -22,6 +22,19 @@ Contacting the ARCHER2 Service Desk is the easiest way to get in touch with the 
 any questions you have or report issues with your use of the service. You can contact the 
 ARCHER2 Service Desk at: [support@archer2.ac.uk](mailto:support@archer2.ac.uk).
 
+You can help the CSE team handle your query faster by providing some useful information
+on your email:
+
+  * The username and project you were using
+  * The slurm job ID, if applicable
+  * Clearly state the problem or error you are are seeing, and provide context of what you are trying to do
+  * The exact command / script you ran (including any slurm scripts)
+  * The complete output / error log the program created
+
+If there are any logs, or the input scripts are large, the best way to give access to
+the CSE team is to copy the input/output/log files to a directory in `/work/<project_code>/shared`
+and, in the email to the service desk, provide the path to this folder.
+
 If you have a particular issue that you would like to discuss in more depth with an expert
 from the ARCHER2 CSE service you can book a callback from them at a time of your convenience.
 Please contact the service desk if you
