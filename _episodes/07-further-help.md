@@ -33,7 +33,7 @@ on your email:
 
 If there are any logs, or the input scripts are large, the best way to give access to
 the CSE team is to copy the input/output/log files to a directory in `/work/<project_code>/shared`
-and, in the email to the helpdesk, provide the path to this folder.
+and, in the email to the service desk, provide the path to this folder.
 
 If you have a particular issue that you would like to discuss in more depth with an expert
 from the ARCHER2 CSE service you can book a callback from them at a time of your convenience.
